@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+	--font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+	--font-mono: 'JetBrains Mono', monospace;
+
+	/* Reference Dark default palette */
+	--bg-primary: #1e1e1e;
+	--bg-secondary: #272727;
+	--bg-card: #2d2d31;
+	--bg-card-hover: #363636;
+	--bg-surface: #181818;
+	--border-subtle: #3a3a3a;
+	--border-focus: #555555;
+
+	--text-primary: #f5f5f5;
+	--text-secondary: #c5c5c5;
+	--text-muted: #888888;
+	--text-accent: #38bdf8;
+
+	--accent-cyan: #38bdf8;
+	--accent-blue: #2563eb;
+	--accent-emerald: #10b981;
+	--accent-amber: #f59e0b;
+	--accent-rose: #f43f5e;
+	--accent-red: #dc2626;
+
+	--radius-sm: 6px;
+	--radius-md: 10px;
+	--radius-lg: 16px;
+	--radius-full: 9999px;
+
+	--shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.25);
+	--shadow-elevated: 0 10px 30px rgba(0, 0, 0, 0.4);
+	--shadow-glow: 0 0 20px rgba(56, 189, 248, 0.25);
+
+	--transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+	--transition-smooth: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Cyberpunk / Hyprland Shell Variables */
+[data-shell='cyberpunk-hud'] {
+	--bg-primary: #0a0e17;
+	--bg-secondary: #101726;
+	--bg-card: #131d2e;
+	--bg-card-hover: #19273f;
+	--bg-surface: #06090e;
+	--border-subtle: #1e3352;
+	--border-focus: #10b981;
+
+	--text-primary: #f0fdf4;
+	--text-secondary: #94a3b8;
+	--text-muted: #64748b;
+	--text-accent: #10b981;
+
+	--shadow-glow: 0 0 25px rgba(16, 185, 129, 0.25);
+}
+
+/* Linux Terminal Shell Variables */
+[data-shell='terminal-cli'] {
+	--bg-primary: #0d1117;
+	--bg-secondary: #161b22;
+	--bg-card: #0d1117;
+	--bg-card-hover: #161b22;
+	--bg-surface: #010409;
+	--border-subtle: #30363d;
+	--border-focus: #58a6ff;
+
+	--text-primary: #c9d1d9;
+	--text-secondary: #8b949e;
+	--text-muted: #6e7681;
+	--text-accent: #58a6ff;
+
+	font-family: var(--font-mono);
+}
+
+/* Executive Paper Clean Shell Variables */
+[data-shell='executive-paper'] {
+	--bg-primary: #f8fafc;
+	--bg-secondary: #ffffff;
+	--bg-card: #ffffff;
+	--bg-card-hover: #f1f5f9;
+	--bg-surface: #e2e8f0;
+	--border-subtle: #e2e8f0;
+	--border-focus: #3b82f6;
+
+	--text-primary: #0f172a;
+	--text-secondary: #334155;
+	--text-muted: #64748b;
+	--text-accent: #2563eb;
+
+	--shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.06);
+	--shadow-elevated: 0 10px 25px rgba(0, 0, 0, 0.08);
+	--shadow-glow: 0 0 15px rgba(37, 99, 235, 0.15);
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	min-height: 100%;
+	background-color: var(--bg-primary);
+	color: var(--text-primary);
+	font-family: var(--font-sans);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	line-height: 1.45;
+	transition: background-color var(--transition-smooth), color var(--transition-smooth);
+}
+
+/* Custom modern scrollbars */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+::-webkit-scrollbar-track {
+	background: var(--bg-surface);
+}
+::-webkit-scrollbar-thumb {
+	background: var(--border-subtle);
+	border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: var(--border-focus);
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+button {
+	font-family: inherit;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	color: inherit;
+}
+
+/* Selection */
+::selection {
+	background: var(--text-accent);
+	color: #000000;
+}
+
+/* Highlight badge */
+.highlight-term {
+	background: rgba(245, 158, 11, 0.35);
+	color: #fbbf24;
+	padding: 0 3px;
+	border-radius: 3px;
+}
+
+/* =========================================================
+   PRINT STYLES: EXACT 1:1 FIDELITY WITH ON-SCREEN DESIGN
+   ========================================================= */
+@media print {
+	*,
+	*::before,
+	*::after {
+		-webkit-print-color-adjust: exact !important;
+		print-color-adjust: exact !important;
+		color-adjust: exact !important;
+	}
+
+	@page {
+		size: A4 portrait;
+		margin: 0;
+	}
+
+	html,
+	body {
+		width: 100% !important;
+		min-height: 100% !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		background: var(--bg-primary) !important;
+		color: var(--text-primary) !important;
+		overflow: visible !important;
+		-webkit-print-color-adjust: exact !important;
+		print-color-adjust: exact !important;
+	}
+
+	.no-print {
+		display: none !important;
+	}
+
+	.page-container {
+		box-shadow: none !important;
+	}
+}
