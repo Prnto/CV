@@ -62,7 +62,7 @@
     <div><code>experience</code> — Досвід роботи (ATN, ОЗОН, BASTICO)</div>
     <div><code>skills</code> — Навички тестування та інженерні утиліти</div>
     <div><code>education</code> — Вища освіта та коледж</div>
-    <div><code>achievements</code> — Сертифікати та права водія</div>
+    <div><code>achievements</code> — Кваліфікації та досягнення</div>
     <div><code>courses</code> — Курси безпеки CRDF Global</div>
     <div><code>contact</code> — Контакти (телефон, email, соціальні мережі)</div>
     <div><code>neofetch</code> — Системна інформація стенду</div>

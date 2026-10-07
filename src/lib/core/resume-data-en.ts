@@ -5,13 +5,13 @@ export const resumeDataEn: ResumeData = {
 	locale: 'en',
 	personal: {
 		fullName: 'OLEKSII KOLOSOV',
-		title: 'Quality Assurance Engineer (Hardware / Embedded / Mobile QA)',
+		title: 'Hardware & Embedded QA Engineer / Manual QA Engineer',
 		photoUrl: avatarImg,
 		phone: '+380966980458',
 		email: 'Prontos317@gmail.com',
 		location: 'Odesa, UA',
 		summary:
-			'Manual QA Engineer specializing in digital & embedded hardware devices, mobile applications, and electro-optical systems. Extensive hands-on background in climatic chamber thermal stress testing, black body calibrator thermal sensor calibration, firmware flashing, and hardware disassembly/rework.',
+			'QA Engineer with 5.5+ years of hands-on experience testing complex hardware and software systems (Embedded Systems, Firmware, iOS/Android Apps). Specialized in end-to-end device and mobile verification, extreme environmental stress testing (climatic chambers, thermal sensors), circuitry diagnostics, and electronics assembly & rework.',
 		socials: [
 			{
 				platform: 'linkedin',
@@ -40,7 +40,7 @@ export const resumeDataEn: ResumeData = {
 			companyShort: 'ATN Corp.',
 			companyUrl: 'https://www.atncorp.com/',
 			period: '02/2021 – 09/2026',
-			role: 'Manual Quality Assurance Engineer',
+			role: 'QA Engineer (Hardware, Embedded & Mobile)',
 			category: 'qa',
 			highlight: true,
 			projects: [
@@ -49,16 +49,16 @@ export const resumeDataEn: ResumeData = {
 				'Connect 5',
 				'Connect 6',
 				'Tactical Map',
-				'Gen 2-4-5 & Gen 6 Devices (Mobile App & Embedded Device)'
+				'Gen 2–6 Optoelectronic Devices (Mobile Apps & Embedded Firmware)'
 			],
 			bullets: [
-				'Regression and functional testing of smart optic devices and mobile applications (Android / iOS)',
-				'Bug reporting, defect tracking, and comprehensive test documentation',
-				'Conducting thermal and humidity stress tests using climatic test chambers',
-				'Thermal sensor calibration utilizing black body radiation calibrators',
-				'Hardware device assembly and disassembly'
+				'Full-cycle functional and regression testing of electro-optical devices and companion mobile applications (Android / iOS)',
+				'Thermal and humidity stress testing in environmental climatic chambers: identifying critical hardware flaws prior to mass production',
+				'High-precision calibration of thermal sensors utilizing black body radiation calibrators to ensure measurement accuracy',
+				'Hardware diagnostics, assembly/disassembly, and PCB rework/soldering during laboratory validation tests',
+				'Defect reporting and lifecycle tracking in Jira/Redmine, partnering with engineering teams to accelerate bug resolution'
 			],
-			tags: ['Manual QA', 'Hardware Testing', 'Android/iOS', 'Climatic Chamber', 'Black Body Calibrator', 'Firmware']
+			tags: ['Hardware QA', 'Embedded Systems', 'Climatic Chamber', 'Black Body Calibrator', 'Android/iOS', 'Firmware']
 		},
 		{
 			id: 'exp-ozon',
@@ -69,9 +69,9 @@ export const resumeDataEn: ResumeData = {
 			category: 'management',
 			highlight: false,
 			bullets: [
-				'Pest control and sanitation services',
-				'Operational leadership, service quality assurance, and safety protocol adherence',
-				'Team leadership and client account management'
+				'Operational management, service quality assurance and safety standards compliance',
+				'Workflow orchestration, quality control procedures, and safety protocol adherence',
+				'Operations leadership, team mentoring, and corporate client relationship management'
 			],
 			tags: ['Management', 'Operations', 'Quality Control', 'Safety Protocols']
 		},
@@ -81,40 +81,38 @@ export const resumeDataEn: ResumeData = {
 			companyShort: 'BASTICO',
 			companyUrl: 'https://bastico.com/',
 			period: '09/2015 – 02/2021',
-			role: 'Inspector',
+			role: 'Product Quality Inspector',
 			category: 'inspection',
 			highlight: false,
 			bullets: [
-				'Quality and quantity inspection of agricultural commodities',
-				'Conducting on-site cargo inspections, sampling, and drafting official reports',
-				'Verification of compliance with international trade and quality standards'
+				'Product quality and quantity inspection, standards compliance verification',
+				'Conducting on-site cargo inspections, laboratory sampling, and drafting official reports',
+				'Ensuring rigorous adherence to international trade quality and safety regulations'
 			],
 			tags: ['Quality Inspection', 'Standards Compliance', 'Reporting', 'Sampling']
 		}
 	],
 	skillsHardware: [
-		'Manual testing of digital devices',
-		'Electronics assembly & soldering',
-		'PCB assembly and rework',
-		'Climatic chamber stress testing',
-		'Thermal sensor calibration & black body calibrator',
-		'Microprocessor programming & firmware flashing'
+		'Climatic test chambers (stress testing)',
+		'Black body radiation calibrator',
+		'Thermal sensor calibration',
+		'Microprocessor firmware flashing',
+		'PCB assembly, rework & soldering',
+		'Circuitry & digital electronics'
 	],
 	skillsSoftware: [
 		'Jira',
 		'ClickUp',
-		'Qase',
+		'Qase TMS',
 		'Redmine',
-		'Slack',
+		'Postman',
+		'Android Studio',
 		'Tera Term',
-		'At Term',
 		'PuTTY',
 		'AmbaUSB',
-		'Figma',
-		'Intel Quartus Prime Programmer',
+		'Intel Quartus Prime',
 		'Cura / Creality Slicer',
-		'Android Studio',
-		'Postman',
+		'Figma',
 		'Linux',
 		'Windows',
 		'iOS / Android'
@@ -122,45 +120,51 @@ export const resumeDataEn: ResumeData = {
 	skillsManagement: [
 		'Defect reporting & bug lifecycle tracking',
 		'Test planning and checklists development',
-		'Team & operations management',
-		'Lab test procedures design'
+		'Lab validation procedures design',
+		'Operations & team management'
 	],
 	allSkills: [
 		{
-			category: 'Hardware & Lab Quality Assurance',
+			category: 'QA & Testing',
 			skills: [
-				'Manual testing of digital electro-optical devices',
-				'Climatic chamber environmental stress testing',
-				'Black body radiator calibration',
-				'Thermal sensor calibration',
-				'PCB assembly, rework & precision soldering',
-				'Microprocessor flashing & embedded firmware verification'
+				'Manual Testing',
+				'Functional & Regression Testing',
+				'Stress Testing (Thermal & Humidity)',
+				'Mobile App Testing (Android / iOS)',
+				'Bug Reporting & Defect Lifecycle Management',
+				'Test Documentation (Jira, ClickUp, Qase, Redmine)',
+				'Postman (REST API Verification)'
 			]
 		},
 		{
-			category: 'Software QA, Defects & Documentation',
+			category: 'Embedded & Hardware',
 			skills: [
-				'Regression & functional testing',
-				'Mobile application testing (Android / iOS)',
-				'Bug reporting & lifecycle management',
-				'Jira',
-				'ClickUp',
-				'Qase TMS',
-				'Redmine',
-				'Postman (REST API verification)'
+				'Climatic Test Chambers (extreme conditions)',
+				'Black Body Radiation Calibrator',
+				'Precision Thermal Sensor Calibration',
+				'Microprocessor Flashing & Debugging',
+				'PCB Assembly, Rework & Precision Soldering',
+				'Digital Circuitry Diagnostics'
 			]
 		},
 		{
-			category: 'Engineering & System Utilities',
+			category: 'Tools & Utilities',
 			skills: [
-				'Tera Term / At Term',
-				'PuTTY',
+				'Tera Term / PuTTY',
 				'AmbaUSB',
-				'Intel Quartus Prime Programmer',
+				'Intel Quartus Prime',
 				'Android Studio',
-				'Figma',
 				'Cura / Creality Slicer (3D Printing)',
-				'Linux, Windows, iOS'
+				'Figma'
+			]
+		},
+		{
+			category: 'Platforms & OS',
+			skills: [
+				'iOS',
+				'Android',
+				'Linux',
+				'Windows'
 			]
 		}
 	],
@@ -184,25 +188,25 @@ export const resumeDataEn: ResumeData = {
 	],
 	achievements: [
 		{
+			id: 'ach-hw-qa',
+			title: '5.5+ Years Hardware & Embedded QA',
+			subtitle: 'ATN Corp. (Gen 2–6, Obsidian-4, Radar 360)',
+			details: 'Full-cycle laboratory validation of devices and mobile apps with zero critical defect escape to mass production',
+			icon: 'cpu'
+		},
+		{
+			id: 'ach-lab-cert',
+			title: 'Lab Testing & Cybersecurity Certification',
+			subtitle: 'CRDF Global Certified • Black Body Calibrator',
+			details: 'Environmental chamber stress testing; certified protection of critical national infrastructure',
+			icon: 'tool'
+		},
+		{
 			id: 'ach-driver',
-			title: 'Driving License (Driving since 2007)',
-			subtitle: 'Categories: A, A1, B, B1, C, C1',
-			details: 'Extensive accident-free driving record across light and heavy utility vehicles',
+			title: 'Technical Mobility & Field Test Readiness',
+			subtitle: 'Driving Categories A, B, C (Licensed since 2007)',
+			details: 'Readiness for field testing, equipment transport, and rapid on-site test bench deployment',
 			icon: 'car'
-		},
-		{
-			id: 'ach-forklift',
-			title: 'Forklift Operator Certificate',
-			subtitle: 'Certified Operator',
-			details: 'Official license for industrial forklift and warehouse machinery operation',
-			icon: 'forklift'
-		},
-		{
-			id: 'ach-crane',
-			title: 'Portal Crane Operator Certificate',
-			subtitle: 'Certified Operator',
-			details: 'Licensed certification for heavy port cargo crane operation',
-			icon: 'crane'
 		}
 	],
 	courses: [
@@ -237,14 +241,9 @@ export const resumeDataEn: ResumeData = {
 	],
 	hobbies: [
 		{
-			name: '3D Printing',
+			name: '3D Printing (Cura/Slicer)',
 			icon: 'printer',
-			description: 'CAD modeling, slicer configuration, functional prototypes'
-		},
-		{
-			name: 'Sports',
-			icon: 'activity',
-			description: 'Fitness endurance, active lifestyle'
+			description: 'CAD prototyping, enclosure fabrication, slicer optimization'
 		},
 		{
 			name: 'Artificial Intelligence',
@@ -252,9 +251,14 @@ export const resumeDataEn: ResumeData = {
 			description: 'AI workflows, productivity tools, generative models'
 		},
 		{
-			name: 'Soldering & Electronics Assembly',
+			name: 'Soldering & Circuitry',
 			icon: 'tool',
 			description: 'DIY electronics, microcontrollers, circuit board repair'
+		},
+		{
+			name: 'Sports',
+			icon: 'activity',
+			description: 'Fitness endurance, active lifestyle'
 		}
 	],
 	metadata: {

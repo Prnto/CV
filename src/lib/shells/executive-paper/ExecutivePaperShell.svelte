@@ -160,7 +160,7 @@
 				<!-- ACHIEVEMENTS -->
 				<section class="exec-side-section">
 					<h3 class="side-heading">
-						{data.locale === 'uk' ? 'ДОСЯГНЕННЯ ТА ДОПУСКИ' : 'CERTIFICATIONS & LICENSES'}
+						{data.locale === 'uk' ? 'ДОСЯГНЕННЯ ТА КВАЛІФІКАЦІЇ' : 'ACHIEVEMENTS & QUALIFICATIONS'}
 					</h3>
 					<ul class="side-list">
 						{#each data.achievements as a}
