@@ -5,23 +5,29 @@
 	import Icon from './Icon.svelte';
 
 	function handleShellChange(shellId: (typeof VISIBLE_SHELLS)[number]['id']) {
-		if (systemKernel.soundEnabled) sound.playSwitch();
+		if (systemKernel.soundEnabled) sound.playSelect();
 		systemKernel.setShell(shellId);
 	}
 
 	function handleLocaleToggle() {
-		if (systemKernel.soundEnabled) sound.playClick();
+		if (systemKernel.soundEnabled) sound.playSelect();
 		systemKernel.toggleLocale();
 	}
 
 	function handleSoundToggle() {
 		systemKernel.toggleSound();
-		if (systemKernel.soundEnabled) sound.playClick();
+		if (systemKernel.soundEnabled) {
+			sound.playCheat();
+		}
 	}
 
 	function handlePrint() {
-		if (systemKernel.soundEnabled) sound.playClick();
+		if (systemKernel.soundEnabled) sound.playSelect();
 		systemKernel.triggerPrint();
+	}
+
+	function handleHover() {
+		if (systemKernel.soundEnabled) sound.playHover();
 	}
 </script>
 
@@ -52,6 +58,7 @@
 						type="button"
 						class="shell-btn"
 						class:active
+						onmouseenter={handleHover}
 						onclick={() => handleShellChange(shell.id)}
 						title={shell.description}
 						role="radio"
@@ -73,7 +80,8 @@
 			<button
 				type="button"
 				class="action-btn"
-				onclick={() => systemKernel.toggleSearch()}
+				onmouseenter={handleHover}
+				onclick={() => { if (systemKernel.soundEnabled) sound.playSelect(); systemKernel.toggleSearch(); }}
 				title="Пошук по навичках (Ctrl+K)"
 				aria-label="Пошук по навичках"
 			>
@@ -85,6 +93,7 @@
 			<button
 				type="button"
 				class="action-btn lang-btn"
+				onmouseenter={handleHover}
 				onclick={handleLocaleToggle}
 				title="Перемкнути мову (UA / EN)"
 				aria-label="Перемкнути мову"
@@ -98,8 +107,9 @@
 				type="button"
 				class="action-btn"
 				class:sound-on={systemKernel.soundEnabled}
+				onmouseenter={handleHover}
 				onclick={handleSoundToggle}
-				title={systemKernel.soundEnabled ? 'Звук: Увімкнено' : 'Звук: Вимкнено'}
+				title={systemKernel.soundEnabled ? 'Звук: Увімкнено (GTA San Andreas)' : 'Звук: Вимкнено'}
 				aria-label="Звукові ефекти"
 			>
 				<Icon name={systemKernel.soundEnabled ? 'sound' : 'sound-off'} size={16} />
@@ -109,7 +119,8 @@
 			<button
 				type="button"
 				class="action-btn"
-				onclick={() => { systemKernel.showSpecsModal = true; if (systemKernel.soundEnabled) sound.playClick(); }}
+				onmouseenter={handleHover}
+				onclick={() => { systemKernel.showSpecsModal = true; if (systemKernel.soundEnabled) sound.playSelect(); }}
 				title="Архітектура проєкту (Linux Data/Shell Separation)"
 				aria-label="Інформація про архітектуру"
 			>
@@ -120,6 +131,7 @@
 			<button
 				type="button"
 				class="action-btn print-btn"
+				onmouseenter={handleHover}
 				onclick={handlePrint}
 				title="Друк / Зберегти як PDF"
 				aria-label="Друк резюме"

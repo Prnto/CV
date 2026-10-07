@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { ResumeData } from '#lib/core/types';
 	import { systemKernel } from '#lib/core/system-state.svelte';
+	import { sound } from '#lib/components/audio';
 	import Icon from '#lib/components/Icon.svelte';
 
 	interface Props {
@@ -13,6 +14,7 @@
 
 	function copyText(text: string, field: string) {
 		if (typeof navigator !== 'undefined') {
+			if (systemKernel.soundEnabled) sound.playSelect();
 			navigator.clipboard.writeText(text);
 			copiedField = field;
 			setTimeout(() => {

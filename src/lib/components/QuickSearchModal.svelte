@@ -1,5 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { systemKernel } from '#lib/core/system-state.svelte';
+	import { sound } from './audio';
 	import Icon from './Icon.svelte';
 
 	let inputEl = $state<HTMLInputElement | null>(null);
@@ -82,6 +83,7 @@
 <svelte:window onkeydown={(e) => {
 	if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
 		e.preventDefault();
+		if (systemKernel.soundEnabled) sound.playSelect();
 		systemKernel.toggleSearch();
 	}
 }} />
@@ -98,7 +100,10 @@
 					type="text"
 					placeholder="Шукати навичку, технологію, прилад (напр. кліматична камера, Jira, Black body)..."
 					value={systemKernel.searchQuery}
-					oninput={(e) => systemKernel.setSearchQuery((e.target as HTMLInputElement).value)}
+					oninput={(e) => {
+						if (systemKernel.soundEnabled) sound.playHover();
+						systemKernel.setSearchQuery((e.target as HTMLInputElement).value);
+					}}
 				/>
 				<button class="close-btn" onclick={() => (systemKernel.isSearchOpen = false)} aria-label="Закрити">
 					<Icon name="x" size={18} />
@@ -111,7 +116,14 @@
 						<span class="hint-title">Швидкі запити:</span>
 						<div class="tag-row">
 							{#each ['Кліматична камера', 'Калібратор', 'Jira', 'Android / iOS', 'Obsidian-4', 'Пайка', 'PuTTY'] as hint}
-								<button class="hint-tag" onclick={() => systemKernel.setSearchQuery(hint)}>
+								<button
+									class="hint-tag"
+									onmouseenter={() => { if (systemKernel.soundEnabled) sound.playHover(); }}
+									onclick={() => {
+										if (systemKernel.soundEnabled) sound.playSelect();
+										systemKernel.setSearchQuery(hint);
+									}}
+								>
 									{hint}
 								</button>
 							{/each}
@@ -124,7 +136,16 @@
 				{:else}
 					<div class="results-list">
 						{#each searchResults as item}
-							<div class="result-card">
+							<!-- svelte-ignore a11y_click_events_have_key_events -->
+							<!-- svelte-ignore a11y_no_static_element_interactions -->
+							<div
+								class="result-card"
+								onmouseenter={() => { if (systemKernel.soundEnabled) sound.playHover(); }}
+								onclick={() => {
+									if (systemKernel.soundEnabled) sound.playSelect();
+									systemKernel.isSearchOpen = false;
+								}}
+							>
 								<div class="result-meta">
 									<span class="result-type">{item.type}</span>
 								</div>

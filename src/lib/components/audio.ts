@@ -1,96 +1,141 @@
-// Web Audio API synthesizers for micro-sound feedback
-class SoundSynthesizer {
+import { GTA_HOVER_URI, GTA_SELECT_URI, GTA_CHEAT_URI } from './sound-data';
+
+// High-fidelity audio player utilizing GTA San Andreas menu audio assets
+class GtaSoundPlayer {
 	private ctx: AudioContext | null = null;
+	private hoverBuffer: AudioBuffer | null = null;
+	private selectBuffer: AudioBuffer | null = null;
+	private cheatBuffer: AudioBuffer | null = null;
+	private isInitialized = false;
+	private initPromise: Promise<void> | null = null;
+	private lastHoverTime = 0;
+	private lastSelectTime = 0;
 
 	private getContext(): AudioContext | null {
 		if (typeof window === 'undefined') return null;
 		if (!this.ctx) {
-			const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+			const AudioCtx =
+				window.AudioContext ||
+				(window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
 			if (AudioCtx) {
 				this.ctx = new AudioCtx();
 			}
 		}
 		if (this.ctx && this.ctx.state === 'suspended') {
-			this.ctx.resume();
+			this.ctx.resume().catch(() => {});
 		}
 		return this.ctx;
 	}
 
-	// Crisp click for UI actions
-	playClick() {
-		try {
+	private async base64ToArrayBuffer(base64Uri: string): Promise<ArrayBuffer> {
+		const base64 = base64Uri.split(',')[1];
+		const binaryString = window.atob(base64);
+		const len = binaryString.length;
+		const bytes = new Uint8Array(len);
+		for (let i = 0; i < len; i++) {
+			bytes[i] = binaryString.charCodeAt(i);
+		}
+		return bytes.buffer;
+	}
+
+	async init(): Promise<void> {
+		if (this.isInitialized || typeof window === 'undefined') return;
+		if (this.initPromise) return this.initPromise;
+
+		this.initPromise = (async () => {
 			const ctx = this.getContext();
 			if (!ctx) return;
-			const osc = ctx.createOscillator();
-			const gain = ctx.createGain();
 
-			osc.type = 'sine';
-			osc.frequency.setValueAtTime(800, ctx.currentTime);
-			osc.frequency.exponentialRampToValueAtTime(300, ctx.currentTime + 0.04);
+			try {
+				const [hoverBuf, selectBuf, cheatBuf] = await Promise.all([
+					this.base64ToArrayBuffer(GTA_HOVER_URI),
+					this.base64ToArrayBuffer(GTA_SELECT_URI),
+					this.base64ToArrayBuffer(GTA_CHEAT_URI)
+				]);
 
-			gain.gain.setValueAtTime(0.04, ctx.currentTime);
-			gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
+				this.hoverBuffer = await ctx.decodeAudioData(hoverBuf);
+				this.selectBuffer = await ctx.decodeAudioData(selectBuf);
+				this.cheatBuffer = await ctx.decodeAudioData(cheatBuf);
+				this.isInitialized = true;
+			} catch (err) {
+				// Fallback: Web Audio decode failed or unsupported codec
+				console.warn('[GTA Sound] Web Audio decode fallback:', err);
+			}
+		})();
 
-			osc.connect(gain);
-			gain.connect(ctx.destination);
+		return this.initPromise;
+	}
 
-			osc.start();
-			osc.stop(ctx.currentTime + 0.04);
+	private playBuffer(buffer: AudioBuffer | null, fallbackUri: string, volume = 0.5) {
+		try {
+			const ctx = this.getContext();
+			if (ctx && buffer && ctx.state === 'running') {
+				const source = ctx.createBufferSource();
+				const gainNode = ctx.createGain();
+				gainNode.gain.value = volume;
+				source.buffer = buffer;
+				source.connect(gainNode);
+				gainNode.connect(ctx.destination);
+				source.start(0);
+				return;
+			}
+
+			// Fallback using HTMLAudioElement
+			if (typeof Audio !== 'undefined') {
+				const audio = new Audio(fallbackUri);
+				audio.volume = volume;
+				audio.play().catch(() => {});
+			}
 		} catch {
-			// Ignore audio context errors
+			// Ignore audio policy errors
 		}
 	}
 
-	// Shell switch futuristic chord
-	playSwitch() {
-		try {
-			const ctx = this.getContext();
-			if (!ctx) return;
-			const now = ctx.currentTime;
+	/**
+	 * GTA San Andreas menu hover sound (classic cursor movement blip)
+	 */
+	playHover(volume = 0.45) {
+		const now = Date.now();
+		if (now - this.lastHoverTime < 50) return;
+		this.lastHoverTime = now;
 
-			[523.25, 659.25, 783.99].forEach((freq, idx) => {
-				const osc = ctx.createOscillator();
-				const gain = ctx.createGain();
-
-				osc.type = 'triangle';
-				osc.frequency.setValueAtTime(freq, now + idx * 0.03);
-
-				gain.gain.setValueAtTime(0.03, now + idx * 0.03);
-				gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.03 + 0.12);
-
-				osc.connect(gain);
-				gain.connect(ctx.destination);
-
-				osc.start(now + idx * 0.03);
-				osc.stop(now + idx * 0.03 + 0.13);
-			});
-		} catch {
-			// Ignore
-		}
+		if (!this.isInitialized) this.init();
+		this.playBuffer(this.hoverBuffer, GTA_HOVER_URI, volume);
 	}
 
-	// Terminal keypress tap
-	playKey() {
-		try {
-			const ctx = this.getContext();
-			if (!ctx) return;
-			const osc = ctx.createOscillator();
-			const gain = ctx.createGain();
+	/**
+	 * GTA San Andreas menu selected sound (classic item activation sound)
+	 */
+	playSelect(volume = 0.55) {
+		const now = Date.now();
+		if (now - this.lastSelectTime < 70) return;
+		this.lastSelectTime = now;
 
-			osc.type = 'sine';
-			osc.frequency.setValueAtTime(1200, ctx.currentTime);
-			gain.gain.setValueAtTime(0.015, ctx.currentTime);
-			gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.02);
+		if (!this.isInitialized) this.init();
+		this.playBuffer(this.selectBuffer, GTA_SELECT_URI, volume);
+	}
 
-			osc.connect(gain);
-			gain.connect(ctx.destination);
+	/**
+	 * GTA San Andreas cheat sound (classic mission passed / cheat activated chime)
+	 */
+	playCheat(volume = 0.6) {
+		if (!this.isInitialized) this.init();
+		this.playBuffer(this.cheatBuffer, GTA_CHEAT_URI, volume);
+	}
 
-			osc.start();
-			osc.stop(ctx.currentTime + 0.02);
-		} catch {
-			// Ignore
-		}
+	// Aliases for compatibility
+	playClick(volume = 0.55) {
+		this.playSelect(volume);
+	}
+
+	playSwitch(volume = 0.55) {
+		this.playSelect(volume);
+	}
+
+	playKey(volume = 0.35) {
+		this.playHover(volume);
 	}
 }
 
-export const sound = new SoundSynthesizer();
+export const sound = new GtaSoundPlayer();
+
