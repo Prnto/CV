@@ -26,6 +26,12 @@ export const resumeDataUk: ResumeData = {
 				icon: 'telegram'
 			},
 			{
+				platform: 'github',
+				label: 'GitHub',
+				url: 'https://github.com/Prnto',
+				icon: 'github'
+			},
+			{
 				platform: 'facebook',
 				label: 'Facebook',
 				url: 'https://facebook.com/',

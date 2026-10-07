@@ -115,6 +115,20 @@
 			</button>
 
 
+			<!-- GitHub Repository / Profile link -->
+			<a
+				href="https://github.com/Prnto/CV"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="action-btn github-btn"
+				onmouseenter={handleHover}
+				title="GitHub Репозиторій (Prnto/CV)"
+				aria-label="GitHub Репозиторій"
+			>
+				<Icon name="github" size={16} />
+				<span class="github-text">GitHub</span>
+			</a>
+
 			<!-- Print / PDF Export -->
 			<button
 				type="button"
@@ -328,6 +342,7 @@
 			display: none;
 		}
 		.print-text,
+		.github-text,
 		.key-hint {
 			display: none;
 		}

@@ -43,6 +43,10 @@
 					<Icon name="telegram" size={14} />
 					<a href="https://t.me/Mr_Pronto" target="_blank" rel="noopener noreferrer">Telegram</a>
 				</div>
+				<div class="contact-entry">
+					<Icon name="github" size={14} />
+					<a href="https://github.com/Prnto" target="_blank" rel="noopener noreferrer">GitHub</a>
+				</div>
 			</div>
 
 			{#if data.personal.summary}

@@ -135,6 +135,18 @@
 							<span>LinkedIn</span>
 							<span class="link-arrow no-print">↗</span>
 						</a>
+
+						<a
+							href="https://github.com/Prnto"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="contact-pill link"
+							title="GitHub профіль: Prnto"
+						>
+							<Icon name="github" size={13} />
+							<span>GitHub</span>
+							<span class="link-arrow no-print">↗</span>
+						</a>
 					</div>
 
 					{#if data.personal.summary}
@@ -617,6 +629,7 @@
 
 	.social-icon-btn.linkedin:hover { background: #0077b5; border-color: #0077b5; }
 	.social-icon-btn.telegram:hover { background: #229ed9; border-color: #229ed9; }
+	.social-icon-btn.github:hover { background: #24292e; border-color: #f0f6fc; }
 	.social-icon-btn.facebook:hover { background: #1877f2; border-color: #1877f2; }
 
 	.title-row {
