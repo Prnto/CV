@@ -15,7 +15,8 @@ export const SHELLS: ShellDefinition[] = [
 		description: 'Тайлінговий хай-тек інтерфейс стенду випробувань (Obsidian-4, термо-датчики, телеметрія)',
 		icon: 'cpu',
 		badge: 'Tiling WM',
-		accentColor: '#10b981'
+		accentColor: '#10b981',
+		hidden: true
 	},
 	{
 		id: 'terminal-cli',
@@ -23,7 +24,8 @@ export const SHELLS: ShellDefinition[] = [
 		description: 'Інтерактивний термінал Linux: підтримка команд whoami, cat, skills, contact, test-run',
 		icon: 'terminal',
 		badge: 'Bash / TUI',
-		accentColor: '#f59e0b'
+		accentColor: '#f59e0b',
+		hidden: true
 	},
 	{
 		id: 'executive-paper',
@@ -34,6 +36,8 @@ export const SHELLS: ShellDefinition[] = [
 		accentColor: '#2563eb'
 	}
 ];
+
+export const VISIBLE_SHELLS: ShellDefinition[] = SHELLS.filter((s) => !s.hidden);
 
 export function getShellById(id: ShellId): ShellDefinition {
 	return SHELLS.find((s) => s.id === id) ?? SHELLS[0];

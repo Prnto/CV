@@ -49,8 +49,10 @@ class SystemKernelState {
 	initFromStorage() {
 		if (typeof window === 'undefined') return;
 		const savedShell = localStorage.getItem('kolosov_resume_shell') as ShellId | null;
-		if (savedShell && SHELLS.some((s) => s.id === savedShell)) {
+		if (savedShell && SHELLS.some((s) => s.id === savedShell && !s.hidden)) {
 			this.currentShell = savedShell;
+		} else {
+			this.currentShell = 'reference-dark';
 		}
 		const savedLocale = localStorage.getItem('kolosov_resume_locale') as 'uk' | 'en' | null;
 		if (savedLocale === 'uk' || savedLocale === 'en') {

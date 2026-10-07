@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { systemKernel } from '#lib/core/system-state.svelte';
 	import Icon from './Icon.svelte';
 </script>
@@ -44,15 +44,7 @@
 								<span>Оригінальний темний референс</span>
 							</div>
 							<div class="shell-pill">
-								<strong>2. Hyprland HUD</strong>
-								<span>Тайлінговий стенд QA-інженера</span>
-							</div>
-							<div class="shell-pill">
-								<strong>3. Linux Terminal</strong>
-								<span>Інтерактивний CLI / Bash TUI</span>
-							</div>
-							<div class="shell-pill">
-								<strong>4. Executive Paper</strong>
+								<strong>2. Executive Paper</strong>
 								<span>A4 PDF / ATS корпоративна тема</span>
 							</div>
 						</div>

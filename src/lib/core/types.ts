@@ -102,4 +102,5 @@ export interface ShellDefinition {
 	icon: string;
 	badge: string;
 	accentColor: string;
+	hidden?: boolean;
 }

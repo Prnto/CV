@@ -1,10 +1,10 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { systemKernel } from '#lib/core/system-state.svelte';
-	import { SHELLS } from '#lib/core/shell-registry';
+	import { VISIBLE_SHELLS, type getShellById } from '#lib/core/shell-registry';
 	import { sound } from '#lib/components/audio';
 	import Icon from './Icon.svelte';
 
-	function handleShellChange(shellId: (typeof SHELLS)[number]['id']) {
+	function handleShellChange(shellId: (typeof VISIBLE_SHELLS)[number]['id']) {
 		if (systemKernel.soundEnabled) sound.playSwitch();
 		systemKernel.setShell(shellId);
 	}
@@ -46,7 +46,7 @@
 				<span>ОБОЛОНКА:</span>
 			</span>
 			<div class="shell-buttons">
-				{#each SHELLS as shell}
+				{#each VISIBLE_SHELLS as shell}
 					{@const active = systemKernel.currentShell === shell.id}
 					<button
 						type="button"
