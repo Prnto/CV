@@ -121,7 +121,7 @@
   <div>✉️ Email: <a href="mailto:${data.personal.email}">${data.personal.email}</a></div>
   <div>📍 Локація: ${data.personal.location}</div>
   <div>🔗 LinkedIn: <a href="https://linkedin.com/in/oleksii-kolosov" target="_blank">linkedin.com/in/oleksii-kolosov</a></div>
-  <div>✈️ Telegram: <a href="https://t.me/Prontos317" target="_blank">@Prontos317</a></div>
+  <div>✈️ Telegram: <a href="https://t.me/Mr_Pronto" target="_blank">@Mr_Pronto</a></div>
 </div>`;
 		} else if (clean === 'neofetch') {
 			out = initialBanner;

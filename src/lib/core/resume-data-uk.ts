@@ -22,7 +22,7 @@ export const resumeDataUk: ResumeData = {
 			{
 				platform: 'telegram',
 				label: 'Telegram',
-				url: 'https://t.me/Prontos317',
+				url: 'https://t.me/Mr_Pronto',
 				icon: 'telegram'
 			},
 			{

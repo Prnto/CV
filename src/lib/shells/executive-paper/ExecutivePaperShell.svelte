@@ -41,7 +41,7 @@
 				</div>
 				<div class="contact-entry">
 					<Icon name="telegram" size={14} />
-					<a href="https://t.me/Prontos317" target="_blank">Telegram</a>
+					<a href="https://t.me/Mr_Pronto" target="_blank">Telegram</a>
 				</div>
 			</div>
 
