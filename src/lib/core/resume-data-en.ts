@@ -1,11 +1,12 @@
 import type { ResumeData } from './types';
+import avatarImg from '../assets/avatar.jpg';
 
 export const resumeDataEn: ResumeData = {
 	locale: 'en',
 	personal: {
 		fullName: 'OLEKSII KOLOSOV',
 		title: 'Quality Assurance Engineer (Hardware / Embedded / Mobile QA)',
-		photoUrl: '/images/avatar.jpg',
+		photoUrl: avatarImg,
 		phone: '+380966980458',
 		email: 'Prontos317@gmail.com',
 		location: 'Odesa, UA',
