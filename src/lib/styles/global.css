@@ -189,7 +189,28 @@ button {
 		display: none !important;
 	}
 
+	.screen-only {
+		display: none !important;
+	}
+
+	.print-only {
+		display: inline !important;
+	}
+
+	.print-only-block {
+		display: block !important;
+	}
+
 	.page-container {
 		box-shadow: none !important;
 	}
 }
+
+/* Base screen state: hide print-only elements when viewed on screens */
+@media screen {
+	.print-only,
+	.print-only-block {
+		display: none !important;
+	}
+}
+

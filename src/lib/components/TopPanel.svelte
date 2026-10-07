@@ -35,13 +35,12 @@
 	<div class="panel-inner">
 		<!-- Brand & Status -->
 		<div class="brand-group">
-			<div class="status-indicator" title="Kernel state: online">
+			<div class="status-indicator" title="Статус: Відкритий до пропозицій (Online)">
 				<span class="status-dot"></span>
 				<span class="status-ping"></span>
 			</div>
 			<div class="brand-text">
-				<span class="kernel-name">KOLOSOV // QA</span>
-				<span class="kernel-ver">v2.0-kernel</span>
+				<span class="kernel-name">OLEKSII KOLOSOV // QA</span>
 			</div>
 		</div>
 
@@ -49,7 +48,7 @@
 		<div class="shell-switcher" role="radiogroup" aria-label="Desktop Shell Switcher">
 			<span class="switcher-label">
 				<Icon name="layout" size={14} />
-				<span>ОБОЛОНКА:</span>
+				<span>{systemKernel.locale === 'uk' ? 'ТЕМА:' : 'THEME:'}</span>
 			</span>
 			<div class="shell-buttons">
 				{#each VISIBLE_SHELLS as shell}
@@ -115,17 +114,6 @@
 				<Icon name={systemKernel.soundEnabled ? 'sound' : 'sound-off'} size={16} />
 			</button>
 
-			<!-- Architecture Explainer Modal Trigger -->
-			<button
-				type="button"
-				class="action-btn"
-				onmouseenter={handleHover}
-				onclick={() => { systemKernel.showSpecsModal = true; if (systemKernel.soundEnabled) sound.playSelect(); }}
-				title="Архітектура проєкту (Linux Data/Shell Separation)"
-				aria-label="Інформація про архітектуру"
-			>
-				<Icon name="info" size={16} />
-			</button>
 
 			<!-- Print / PDF Export -->
 			<button
@@ -220,15 +208,6 @@
 		font-size: 0.86rem;
 	}
 
-	.kernel-ver {
-		font-family: var(--font-mono);
-		font-size: 0.72rem;
-		color: #38bdf8;
-		background: rgba(56, 189, 248, 0.12);
-		padding: 2px 6px;
-		border-radius: 4px;
-		border: 1px solid rgba(56, 189, 248, 0.25);
-	}
 
 	.shell-switcher {
 		display: flex;

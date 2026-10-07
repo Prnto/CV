@@ -6,6 +6,10 @@
 
 	let { children }: LayoutProps = $props();
 
+	if (typeof window !== 'undefined') {
+		systemKernel.initFromStorage();
+	}
+
 	onMount(() => {
 		systemKernel.initFromStorage();
 	});

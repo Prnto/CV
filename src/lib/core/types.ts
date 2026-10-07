@@ -16,6 +16,12 @@ export interface PersonalInfo {
 	socials: SocialLink[];
 }
 
+export interface AppProjectItem {
+	name: string;
+	androidUrl?: string;
+	iosUrl?: string;
+}
+
 export interface ExperienceItem {
 	id: string;
 	company: string;
@@ -25,6 +31,7 @@ export interface ExperienceItem {
 	role: string;
 	category?: 'qa' | 'management' | 'inspection';
 	projects?: string[];
+	apps?: AppProjectItem[];
 	bullets: string[];
 	tags?: string[];
 	highlight?: boolean;

@@ -46,7 +46,7 @@
 				results.push({
 					type: 'Апаратні навички',
 					title: skill,
-					subtitle: 'Hardware QA / Electronics',
+					subtitle: systemKernel.locale === 'uk' ? 'Апаратне QA / Електроніка' : 'Hardware QA / Electronics',
 					tag: 'hardware'
 				});
 			}
@@ -58,7 +58,7 @@
 				results.push({
 					type: 'ПЗ та Утиліти',
 					title: tool,
-					subtitle: 'Software QA / Testing Tools',
+					subtitle: systemKernel.locale === 'uk' ? 'Програмне QA / Інструменти тестування' : 'Software QA / Testing Tools',
 					tag: 'software'
 				});
 			}

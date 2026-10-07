@@ -11,7 +11,7 @@ export const resumeDataEn: ResumeData = {
 		email: 'Prontos317@gmail.com',
 		location: 'Odesa, UA',
 		summary:
-			'QA Engineer with 5.5+ years of hands-on experience testing complex hardware and software systems (Embedded Systems, Firmware, iOS/Android Apps). Specialized in end-to-end device and mobile verification, extreme environmental stress testing (climatic chambers, thermal sensors), circuitry diagnostics, and electronics assembly & rework.',
+			'QA Engineer with 5.5+ years of hands-on experience testing complex hardware and software systems (Embedded Systems, Firmware, iOS/Android Apps). Specialized in end-to-end device and mobile verification, extreme environmental stress testing (climatic chambers, recoil machines, thermal sensors), circuitry diagnostics, and electronics assembly & rework.',
 		socials: [
 			{
 				platform: 'linkedin',
@@ -44,21 +44,60 @@ export const resumeDataEn: ResumeData = {
 			category: 'qa',
 			highlight: true,
 			projects: [
-				'Obsidian-4',
-				'Radar 360',
 				'Connect 5',
 				'Connect 6',
+				'Obsidian 4',
+				'Radar 360',
 				'Tactical Map',
+				'ATN Obsidian',
+				'ATN Ballistics',
 				'Gen 2–6 Optoelectronic Devices (Mobile Apps & Embedded Firmware)'
+			],
+			apps: [
+				{
+					name: 'Connect 5',
+					androidUrl: 'https://play.google.com/store/apps/details?id=com.atn.obsidian5',
+					iosUrl: 'https://apps.apple.com/ua/app/atn-connect-5/id1583221269?l=ru'
+				},
+				{
+					name: 'Connect 6',
+					androidUrl: 'https://play.google.com/store/apps/details?id=com.atn.blaze',
+					iosUrl: 'https://apps.apple.com/ua/app/atn-connect-6/id6476927551?l=ru'
+				},
+				{
+					name: 'Obsidian 4',
+					androidUrl: 'https://play.google.com/store/apps/details?id=com.atn.obsidian4K',
+					iosUrl: 'https://apps.apple.com/ua/app/atn-obsidian-4/id1337731256?l=ru'
+				},
+				{
+					name: 'Radar 360',
+					androidUrl: 'https://play.google.com/store/apps/details?id=com.atn.tl',
+					iosUrl: 'https://apps.apple.com/ua/app/atn-radar-360/id1526186603?l=ru'
+				},
+				{
+					name: 'Tactical Map',
+					androidUrl: 'https://play.google.com/store/apps/details?id=com.atn.tacticalnav',
+					iosUrl: 'https://apps.apple.com/ua/app/tactical-map/id1618223523?l=ru'
+				},
+				{
+					name: 'Obsidian',
+					androidUrl: 'https://play.google.com/store/apps/details?id=com.atn.obsidian',
+					iosUrl: 'https://apps.apple.com/ua/app/atn-obsidian/id931990224?l=ru'
+				},
+				{
+					name: 'Ballistics',
+					androidUrl: 'https://play.google.com/store/apps/details?id=com.atn.bc',
+					iosUrl: 'https://apps.apple.com/ua/app/atn-ballistics/id1193084973?l=ru'
+				}
 			],
 			bullets: [
 				'Full-cycle functional and regression testing of electro-optical devices and companion mobile applications (Android / iOS)',
 				'Thermal and humidity stress testing in environmental climatic chambers: identifying critical hardware flaws prior to mass production',
-				'High-precision calibration of thermal sensors utilizing black body radiation calibrators to ensure measurement accuracy',
+				'High-precision calibration of thermal sensors (black body source); recoil machine calibration and shock endurance testing',
 				'Hardware diagnostics, assembly/disassembly, and PCB rework/soldering during laboratory validation tests',
 				'Defect reporting and lifecycle tracking in Jira/Redmine, partnering with engineering teams to accelerate bug resolution'
 			],
-			tags: ['Hardware QA', 'Embedded Systems', 'Climatic Chamber', 'Black Body Calibrator', 'Android/iOS', 'Firmware']
+			tags: ['Hardware QA', 'Embedded Systems', 'Recoil Machine', 'Climatic Chamber', 'Black Body Calibrator', 'Android/iOS']
 		},
 		{
 			id: 'exp-ozon',
@@ -94,6 +133,7 @@ export const resumeDataEn: ResumeData = {
 	],
 	skillsHardware: [
 		'Climatic test chambers (stress testing)',
+		'Recoil machine (shock & impact tests)',
 		'Black body radiation calibrator',
 		'Thermal sensor calibration',
 		'Microprocessor firmware flashing',
@@ -143,6 +183,7 @@ export const resumeDataEn: ResumeData = {
 			category: 'Embedded & Hardware',
 			skills: [
 				'Climatic Test Chambers (extreme conditions)',
+				'Recoil Machine (shock/impact calibration)',
 				'Black Body Radiation Calibrator',
 				'Precision Thermal Sensor Calibration',
 				'Microprocessor Flashing & Debugging',
@@ -201,14 +242,14 @@ export const resumeDataEn: ResumeData = {
 		{
 			id: 'ach-lab-cert',
 			title: 'Lab Testing & Cybersecurity Certification',
-			subtitle: 'CRDF Global Certified • Black Body Calibrator',
-			details: 'Environmental chamber stress testing; certified protection of critical national infrastructure',
+			subtitle: 'CRDF Global Certified • Recoil Machine • Black Body',
+			details: 'Environmental chamber stress testing and recoil shock tests; certified defense of critical national infrastructure',
 			icon: 'tool'
 		},
 		{
 			id: 'ach-driver',
 			title: 'Technical Mobility & Field Test Readiness',
-			subtitle: 'Driving Categories A, B, C (Licensed since 2007)',
+			subtitle: 'Driving Categories A, A1, B, B1, C, C1 (Licensed since 2007)',
 			details: 'Readiness for field testing, equipment transport, and rapid on-site test bench deployment',
 			icon: 'car'
 		}

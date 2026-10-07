@@ -51,7 +51,7 @@
 					</div>
 					<div class="status-pill no-print">
 						<span class="status-dot"></span>
-						<span>QA Hardware</span>
+						<span>{data.locale === 'uk' ? 'QA Апаратного ПЗ' : 'QA Hardware'}</span>
 					</div>
 				</div>
 
@@ -195,7 +195,58 @@
 										<span class="role-badge" class:matched={isMatch(item.role)}>{item.role}</span>
 									</div>
 
-									{#if item.projects && item.projects.length > 0}
+									{#if item.apps && item.apps.length > 0}
+										<div class="projects-block">
+											<div class="apps-row">
+												<span class="projects-label">
+													{data.locale === 'uk' ? 'Мобільні застосунки (QA):' : 'Mobile Apps (QA):'}
+												</span>
+												<div class="apps-badges-list">
+													{#each item.apps as app}
+														<span class="app-chip" class:matched={isMatch(app.name)}>
+															<span class="app-chip-name">{app.name}</span>
+															<span class="app-chip-stores">
+																{#if app.androidUrl}
+																	<a
+																		href={app.androidUrl}
+																		target="_blank"
+																		rel="noopener noreferrer"
+																		class="store-badge android"
+																		title="{app.name} — Google Play"
+																	>
+																		<Icon name="android" size={10} />
+																		<span>Play</span>
+																	</a>
+																{/if}
+																{#if app.iosUrl}
+																	<a
+																		href={app.iosUrl}
+																		target="_blank"
+																		rel="noopener noreferrer"
+																		class="store-badge apple"
+																		title="{app.name} — App Store"
+																	>
+																		<Icon name="apple" size={10} />
+																		<span>iOS</span>
+																	</a>
+																{/if}
+															</span>
+														</span>
+													{/each}
+												</div>
+											</div>
+											<div class="hardware-row">
+												<span class="projects-label">
+													{data.locale === 'uk' ? 'Пристрої:' : 'Devices:'}
+												</span>
+												<span class="projects-content">
+													{data.locale === 'uk'
+														? 'Оптико-електронні прилади ATN 2–6 поколінь (вбудоване ПЗ / Firmware)'
+														: 'Gen 2–6 Electro-Optics (Embedded Firmware)'}
+												</span>
+											</div>
+										</div>
+									{:else if item.projects && item.projects.length > 0}
 										<div class="projects-block">
 											<span class="projects-label">
 												{data.locale === 'uk' ? 'Проєкти:' : 'Projects:'}
@@ -346,8 +397,7 @@
 											<h4 class="edu-inst" class:matched={isMatch(edu.institution)}>{edu.institution}</h4>
 										{/if}
 										<span class="edu-period">{edu.period}</span>
-									</div>
-									<div class="edu-meta">
+									</div>									<div class="edu-meta">
 										<span class="edu-degree">{edu.degree}</span>
 										<span class="edu-dot">&bull;</span>
 										<span class="edu-spec" class:matched={isMatch(edu.specialization)}>{edu.specialization}</span>
@@ -816,6 +866,97 @@
 		margin-right: 4px;
 	}
 
+	.apps-row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 6px;
+		margin-bottom: 3px;
+	}
+
+	.apps-badges-list {
+		display: inline-flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 5px;
+	}
+
+	.app-chip {
+		display: inline-flex;
+		align-items: center;
+		gap: 5px;
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 4px;
+		padding: 1px 4px 1px 6px;
+	}
+
+	.app-chip.matched {
+		background: rgba(234, 179, 8, 0.2);
+		border-color: #eab308;
+	}
+
+	.app-chip-name {
+		font-size: 0.71rem;
+		font-weight: 600;
+		color: #f1f5f9;
+		white-space: nowrap;
+	}
+
+	.app-chip-stores {
+		display: inline-flex;
+		align-items: center;
+		gap: 3px;
+	}
+
+	.store-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 3px;
+		text-decoration: none;
+		font-size: 0.62rem;
+		font-family: var(--font-mono);
+		font-weight: 600;
+		padding: 1px 4px;
+		border-radius: 3px;
+		line-height: 1;
+		transition: all 120ms ease;
+	}
+
+	.store-badge.android {
+		background: rgba(34, 197, 94, 0.15);
+		color: #4ade80;
+		border: 1px solid rgba(34, 197, 94, 0.35);
+	}
+
+	.store-badge.android:hover {
+		background: rgba(34, 197, 94, 0.3);
+		color: #86efac;
+		border-color: rgba(34, 197, 94, 0.7);
+		transform: translateY(-0.5px);
+	}
+
+	.store-badge.apple {
+		background: rgba(248, 250, 252, 0.12);
+		color: #f1f5f9;
+		border: 1px solid rgba(248, 250, 252, 0.25);
+	}
+
+	.store-badge.apple:hover {
+		background: rgba(248, 250, 252, 0.25);
+		color: #ffffff;
+		border-color: rgba(248, 250, 252, 0.6);
+		transform: translateY(-0.5px);
+	}
+
+	.hardware-row {
+		display: flex;
+		align-items: baseline;
+		font-size: 0.71rem;
+		color: #cbd5e1;
+		margin-top: 2px;
+	}
+
 	.bullets-list {
 		list-style: none;
 		padding: 0;
@@ -1190,10 +1331,13 @@
 	}
 
 	/* ================= PRINT / A4 FIDELITY ================= */
+	/* ================= PRINT / A4 FIDELITY (AUTHENTIC DARK THEME) ================= */
 	@media print {
 		:global(body) {
-			background: #ffffff !important;
-			color: #0f172a !important;
+			background: #18181b !important;
+			color: #f4f4f5 !important;
+			-webkit-print-color-adjust: exact !important;
+			print-color-adjust: exact !important;
 		}
 
 		.no-print {
@@ -1202,238 +1346,420 @@
 
 		.ref-shell-container {
 			padding: 0 !important;
-			background: transparent !important;
+			margin: 0 !important;
+			background: #18181b !important;
 			background-image: none !important;
+			width: 100% !important;
 		}
 
 		.ref-canvas {
-			max-width: 100% !important;
-			padding: 0 !important;
-			background: #ffffff !important;
-			border: none !important;
+			width: 210mm !important;
+			max-width: 210mm !important;
+			height: 297mm !important;
+			max-height: 297mm !important;
+			margin: 0 auto !important;
+			padding: 5mm 7mm !important;
+			background: #1e1e24 !important;
+			border: 1px solid #2e2e36 !important;
 			box-shadow: none !important;
 			border-radius: 0 !important;
+			box-sizing: border-box !important;
+			overflow: hidden !important;
 		}
 
 		.ref-header {
-			padding-bottom: 8px !important;
-			margin-bottom: 8px !important;
-			border-bottom: 1.5px solid #0f172a !important;
+			padding-bottom: 5px !important;
+			margin-bottom: 5px !important;
+			border-bottom: 1.5px solid #38bdf8 !important;
+		}
+
+		.header-main-row {
+			gap: 12px !important;
 		}
 
 		.avatar-wrapper {
-			width: 80px !important;
-			height: 80px !important;
-			border-color: #0f172a !important;
+			width: 60px !important;
+			height: 60px !important;
+			border-color: #38bdf8 !important;
 		}
 
 		.person-name {
-			font-size: 1.6rem !important;
-			color: #0f172a !important;
+			font-size: 1.25rem !important;
+			color: #ffffff !important;
+			line-height: 1.1 !important;
 		}
 
 		.person-title {
-			font-size: 0.95rem !important;
-			color: #0369a1 !important;
+			font-size: 0.78rem !important;
+			color: #38bdf8 !important;
+			margin-top: 1px !important;
 		}
 
 		.header-contacts-bar {
-			gap: 4px !important;
-			margin: 2px 0 !important;
+			display: flex !important;
+			flex-wrap: wrap !important;
+			justify-content: flex-start !important;
+			gap: 4px 6px !important;
+			margin: 2px 0 3px !important;
 		}
 
 		.contact-pill {
-			background: transparent !important;
-			border: 1px solid #cbd5e1 !important;
-			color: #0f172a !important;
-			font-size: 0.68rem !important;
-			padding: 1px 6px !important;
+			background: #18181c !important;
+			border: 1px solid #3f3f46 !important;
+			color: #e4e4e7 !important;
+			font-size: 0.60rem !important;
+			padding: 1.5px 6px !important;
+		}
+
+		.contact-pill :global(svg) {
+			color: #38bdf8 !important;
 		}
 
 		.person-bio {
-			font-size: 0.73rem !important;
-			color: #334155 !important;
-			line-height: 1.35 !important;
+			font-size: 0.65rem !important;
+			color: #a1a1aa !important;
+			line-height: 1.25 !important;
+			margin-top: 2px !important;
 		}
 
 		.ref-main-grid {
 			display: grid !important;
-			grid-template-columns: 1.25fr 1fr !important;
-			gap: 10px !important;
+			grid-template-columns: 1.18fr 1fr !important;
+			gap: 6px !important;
 		}
 
 		.ref-column {
-			gap: 9px !important;
+			display: flex !important;
+			flex-direction: column !important;
+			gap: 6px !important;
 		}
 
 		.ref-card {
-			background: #ffffff !important;
-			border: 1px solid #cbd5e1 !important;
+			background: #23232a !important;
+			border: 1px solid #33333d !important;
 			box-shadow: none !important;
-			padding: 8px 10px !important;
-			border-radius: 5px !important;
+			padding: 5px 7px !important;
+			border-radius: 4px !important;
 			break-inside: avoid !important;
 			page-break-inside: avoid !important;
 		}
 
 		.card-header {
-			margin-bottom: 6px !important;
-			padding-bottom: 4px !important;
-			border-bottom: 1px solid #e2e8f0 !important;
+			margin-bottom: 4px !important;
+			padding-bottom: 2px !important;
+			border-bottom: 1px solid #2e2e38 !important;
 		}
 
 		.card-title {
-			font-size: 0.77rem !important;
-			color: #0f172a !important;
+			font-size: 0.70rem !important;
+			color: #f4f4f5 !important;
 		}
 
 		.title-accent-dot {
-			background: #0284c7 !important;
-			box-shadow: none !important;
+			background: #38bdf8 !important;
+			box-shadow: 0 0 6px rgba(56, 189, 248, 0.6) !important;
+		}
+
+		.title-accent-dot.amber {
+			background: #f59e0b !important;
+			box-shadow: 0 0 6px rgba(245, 158, 11, 0.6) !important;
+		}
+
+		.title-accent-dot.purple {
+			background: #a855f7 !important;
+			box-shadow: 0 0 6px rgba(168, 85, 247, 0.6) !important;
+		}
+
+		.title-accent-dot.blue {
+			background: #3b82f6 !important;
+			box-shadow: 0 0 6px rgba(59, 130, 246, 0.6) !important;
+		}
+
+		.exp-list {
+			gap: 5px !important;
+		}
+
+		.exp-item {
+			padding-bottom: 4px !important;
+			border-bottom-color: #2e2e38 !important;
 		}
 
 		.exp-item.highlighted {
-			background: #f8fafc !important;
-			border: 1px solid #e2e8f0 !important;
-			padding: 6px 8px !important;
+			background: rgba(56, 189, 248, 0.04) !important;
+			border: 1px solid rgba(56, 189, 248, 0.22) !important;
+			padding: 4px 6px !important;
+			border-radius: 4px !important;
 		}
 
 		.company-name {
-			font-size: 0.82rem !important;
-			color: #0f172a !important;
+			font-size: 0.76rem !important;
+			color: #ffffff !important;
 		}
 
-		.company-logo.atn { background: #b91c1c !important; }
-		.company-logo.bastico { background: #15803d !important; }
+		.company-logo.atn { background: #dc2626 !important; }
+		.company-logo.bastico { background: #16a34a !important; }
+
+		.exp-period {
+			font-size: 0.62rem !important;
+			color: #a1a1aa !important;
+		}
 
 		.role-badge {
-			background: #e0f2fe !important;
-			color: #0369a1 !important;
-			border-color: #bae6fd !important;
-			font-size: 0.7rem !important;
+			background: rgba(56, 189, 248, 0.14) !important;
+			color: #38bdf8 !important;
+			border-color: rgba(56, 189, 248, 0.3) !important;
+			font-size: 0.65rem !important;
+			padding: 1px 5px !important;
 		}
 
 		.projects-block {
-			background: #f1f5f9 !important;
-			border-left-color: #0284c7 !important;
-			font-size: 0.68rem !important;
-			color: #1e293b !important;
-			padding: 3px 6px !important;
+			background: #18181c !important;
+			border-left: 2px solid #38bdf8 !important;
+			font-size: 0.60rem !important;
+			color: #d4d4d8 !important;
+			padding: 2px 4px !important;
+			margin: 1px 0 2px !important;
+		}
+
+		.apps-row {
+			gap: 3px !important;
+			margin-bottom: 1px !important;
+		}
+
+		.apps-badges-list {
+			gap: 2.5px !important;
+		}
+
+		.app-chip {
+			padding: 0 3px !important;
+			background: #141418 !important;
+			border: 1px solid #2d2d38 !important;
+			gap: 2.5px !important;
+		}
+
+		.app-chip-name {
+			font-size: 0.58rem !important;
+			color: #f4f4f5 !important;
+		}
+
+		.app-chip-stores {
+			gap: 1.5px !important;
+		}
+
+		.store-badge {
+			font-size: 0.51rem !important;
+			padding: 0 2px !important;
+			border-radius: 2px !important;
+		}
+
+		.store-badge.android {
+			background: rgba(34, 197, 94, 0.2) !important;
+			color: #4ade80 !important;
+			border: 1px solid rgba(34, 197, 94, 0.45) !important;
+		}
+
+		.store-badge.apple {
+			background: rgba(255, 255, 255, 0.15) !important;
+			color: #ffffff !important;
+			border: 1px solid rgba(255, 255, 255, 0.35) !important;
+		}
+
+		.hardware-row {
+			font-size: 0.58rem !important;
+			margin-top: 1px !important;
 		}
 
 		.bullets-list {
-			gap: 3px !important;
+			gap: 2px !important;
 		}
 
 		.bullets-list li {
-			font-size: 0.69rem !important;
-			line-height: 1.25 !important;
-			color: #1e293b !important;
+			font-size: 0.62rem !important;
+			line-height: 1.18 !important;
+			color: #d4d4d8 !important;
 		}
 
 		.bullet-dot {
-			color: #0284c7 !important;
+			color: #38bdf8 !important;
 		}
 
 		.exp-concise-line {
-			font-size: 0.68rem !important;
+			font-size: 0.63rem !important;
+			gap: 4px !important;
 		}
 
 		.exp-concise-line .exp-role {
-			color: #0f172a !important;
+			color: #f4f4f5 !important;
 		}
 
 		.exp-concise-line .exp-desc {
-			color: #475569 !important;
+			color: #a1a1aa !important;
+		}
+
+		.ach-list {
+			gap: 4px !important;
 		}
 
 		.ach-item {
-			background: #f8fafc !important;
-			border: 1px solid #e2e8f0 !important;
-			padding: 5px 8px !important;
+			background: #19191e !important;
+			border: 1px solid #30303a !important;
+			padding: 3px 6px !important;
+			border-radius: 3px !important;
 		}
 
 		.ach-icon-circle {
-			background: #fef3c7 !important;
-			border-color: #fde68a !important;
-			color: #d97706 !important;
-			width: 22px !important;
-			height: 22px !important;
+			background: rgba(245, 158, 11, 0.15) !important;
+			border-color: rgba(245, 158, 11, 0.3) !important;
+			color: #f59e0b !important;
+			width: 18px !important;
+			height: 18px !important;
 		}
 
 		.ach-title {
-			font-size: 0.73rem !important;
-			color: #0f172a !important;
+			font-size: 0.67rem !important;
+			color: #ffffff !important;
 		}
 
 		.ach-subtitle {
-			font-size: 0.66rem !important;
-			color: #b45309 !important;
+			font-size: 0.60rem !important;
+			color: #fbbf24 !important;
 		}
 
 		.ach-details {
-			font-size: 0.66rem !important;
-			color: #475569 !important;
+			font-size: 0.60rem !important;
+			color: #a1a1aa !important;
+			line-height: 1.15 !important;
 		}
 
-		.sub-label {
-			font-size: 0.68rem !important;
+		.skills-section-block {
 			margin-bottom: 4px !important;
 		}
 
+		.sub-label {
+			font-size: 0.63rem !important;
+			margin-bottom: 2px !important;
+			color: #38bdf8 !important;
+		}
+
+		.sub-label.tool-label {
+			color: #10b981 !important;
+		}
+
+		.sub-label.platform-label {
+			color: #f59e0b !important;
+		}
+
+		.chips-grid {
+			gap: 2.5px !important;
+		}
+
 		.chip {
-			font-size: 0.66rem !important;
-			padding: 2px 5px !important;
-			background: #f1f5f9 !important;
-			color: #1e293b !important;
-			border: 1px solid #cbd5e1 !important;
+			font-size: 0.61rem !important;
+			padding: 1px 4px !important;
+			background: #18181c !important;
+			color: #e4e4e7 !important;
+			border: 1px solid #383842 !important;
+			border-radius: 3px !important;
+		}
+
+		.chip-hw {
+			border-left: 2px solid #38bdf8 !important;
+		}
+
+		.chip-tool {
+			border-left: 2px solid #10b981 !important;
+		}
+
+		.chip-platform {
+			border-left: 2px solid #f59e0b !important;
+		}
+
+		.edu-list {
+			gap: 4px !important;
+		}
+
+		.edu-item {
+			padding-bottom: 3px !important;
+			border-bottom-color: #2e2e38 !important;
 		}
 
 		.edu-inst {
-			font-size: 0.74rem !important;
-			color: #0f172a !important;
+			font-size: 0.68rem !important;
+			color: #ffffff !important;
 		}
 
 		.edu-period {
-			font-size: 0.66rem !important;
-			color: #475569 !important;
+			font-size: 0.60rem !important;
+			color: #a1a1aa !important;
 		}
 
 		.edu-meta {
-			font-size: 0.66rem !important;
-			color: #334155 !important;
+			font-size: 0.60rem !important;
+			color: #a1a1aa !important;
 		}
 
 		.course-box {
-			background: #f8fafc !important;
-			border: 1px solid #e2e8f0 !important;
-			padding: 4px 7px !important;
+			background: rgba(56, 189, 248, 0.04) !important;
+			border: 1px solid rgba(56, 189, 248, 0.22) !important;
+			padding: 3px 5px !important;
+			border-radius: 3px !important;
+			margin-top: 3px !important;
+		}
+
+		.course-badge {
+			font-size: 0.58rem !important;
+			color: #38bdf8 !important;
+		}
+
+		.course-year {
+			font-size: 0.58rem !important;
+			color: #a1a1aa !important;
 		}
 
 		.course-text {
-			font-size: 0.66rem !important;
-			color: #334155 !important;
+			font-size: 0.59rem !important;
+			color: #d4d4d8 !important;
+			line-height: 1.15 !important;
+		}
+
+		.lang-hobbies-split {
+			gap: 6px !important;
+		}
+
+		.sub-label-mini {
+			font-size: 0.60rem !important;
+			color: #71717a !important;
+			margin-bottom: 2px !important;
+		}
+
+		.lang-list {
+			gap: 1.5px !important;
 		}
 
 		.lang-row {
-			font-size: 0.67rem !important;
-			padding: 2px 0 !important;
+			font-size: 0.61rem !important;
+			padding: 1px 0 !important;
 		}
 
 		.lang-name {
-			color: #0f172a !important;
+			color: #f4f4f5 !important;
 		}
 
 		.lang-level {
-			color: #0369a1 !important;
+			color: #38bdf8 !important;
+		}
+
+		.hobbies-grid {
+			gap: 2.5px !important;
 		}
 
 		.hobby-pill {
-			font-size: 0.65rem !important;
-			padding: 2px 5px !important;
-			background: #f8fafc !important;
-			border: 1px solid #e2e8f0 !important;
-			color: #334155 !important;
+			font-size: 0.59rem !important;
+			padding: 1px 4px !important;
+			background: #18181c !important;
+			border: 1px solid #383842 !important;
+			color: #d4d4d8 !important;
+			border-radius: 3px !important;
 		}
 	}
 

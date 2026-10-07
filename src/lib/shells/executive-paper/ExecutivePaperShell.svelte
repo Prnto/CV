@@ -37,11 +37,11 @@
 				</div>
 				<div class="contact-entry">
 					<Icon name="linkedin" size={14} />
-					<a href="https://linkedin.com/in/oleksii-kolosov" target="_blank">LinkedIn</a>
+					<a href="https://linkedin.com/in/oleksii-kolosov" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 				</div>
 				<div class="contact-entry">
 					<Icon name="telegram" size={14} />
-					<a href="https://t.me/Mr_Pronto" target="_blank">Telegram</a>
+					<a href="https://t.me/Mr_Pronto" target="_blank" rel="noopener noreferrer">Telegram</a>
 				</div>
 			</div>
 
@@ -64,25 +64,70 @@
 						{#each data.experience as exp}
 							<div class="exec-exp-entry">
 								<div class="exp-title-row">
-									{#if exp.companyUrl}
-										<a
-											href={exp.companyUrl}
-											target="_blank"
-											rel="noopener noreferrer"
-											class="exec-company-link"
-											title="{exp.company} ({exp.companyUrl})"
-										>
+									<div>
+										{#if exp.companyUrl}
+											<a
+												href={exp.companyUrl}
+												target="_blank"
+												rel="noopener noreferrer"
+												class="exec-company-link"
+												title="{exp.company} ({exp.companyUrl})"
+											>
+												<h4 class="company-text">{exp.company}</h4>
+												<span class="exec-link-ext no-print">↗</span>
+											</a>
+										{:else}
 											<h4 class="company-text">{exp.company}</h4>
-											<span class="exec-link-ext no-print">↗</span>
-										</a>
-									{:else}
-										<h4 class="company-text">{exp.company}</h4>
-									{/if}
+										{/if}
+									</div>
 									<span class="period-text">{exp.period}</span>
 								</div>
 								<div class="role-text">{exp.role}</div>
 
-								{#if exp.projects}
+								{#if exp.apps && exp.apps.length > 0}
+									<div class="projects-text">
+										<div class="exec-apps-row">
+											<strong class="exec-proj-label">{data.locale === 'uk' ? 'Мобільні застосунки (QA):' : 'Mobile Apps (QA):'}</strong>
+											<div class="exec-apps-list">
+												{#each exp.apps as app}
+													<span class="exec-app-chip">
+														<span class="exec-app-name">{app.name}</span>
+														<span class="exec-store-btns">
+															{#if app.androidUrl}
+																<a
+																	href={app.androidUrl}
+																	target="_blank"
+																	rel="noopener noreferrer"
+																	class="exec-store-badge android"
+																	title="{app.name} — Google Play"
+																>
+																	<Icon name="android" size={9} />
+																	<span>Play</span>
+																</a>
+															{/if}
+															{#if app.iosUrl}
+																<a
+																	href={app.iosUrl}
+																	target="_blank"
+																	rel="noopener noreferrer"
+																	class="exec-store-badge apple"
+																	title="{app.name} — App Store"
+																>
+																	<Icon name="apple" size={9} />
+																	<span>iOS</span>
+																</a>
+															{/if}
+														</span>
+													</span>
+												{/each}
+											</div>
+										</div>
+										<div class="exec-hw-row">
+											<strong class="exec-proj-label">{data.locale === 'uk' ? 'Пристрої:' : 'Devices:'}</strong>
+											<span>{data.locale === 'uk' ? 'Оптико-електронні прилади ATN 2–6 поколінь (вбудоване ПЗ / Firmware)' : 'ATN Gen 2–6 Electro-Optics (Embedded Firmware)'}</span>
+										</div>
+									</div>
+								{:else if exp.projects}
 									<div class="projects-text">
 										<strong>{data.locale === 'uk' ? 'Проєкти:' : 'Projects:'}</strong> {exp.projects.join(', ')}
 									</div>
@@ -401,6 +446,96 @@
 		padding: 6px 10px;
 		border-radius: 4px;
 		margin: 4px 0;
+		border-left: 3px solid #2563eb;
+	}
+
+	.exec-apps-row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 6px;
+		margin-bottom: 3px;
+	}
+
+	.exec-proj-label {
+		color: #1e293b;
+		font-weight: 700;
+	}
+
+	.exec-apps-list {
+		display: inline-flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 5px;
+	}
+
+	.exec-app-chip {
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+		background: #ffffff;
+		border: 1px solid #cbd5e1;
+		border-radius: 4px;
+		padding: 1px 4px 1px 6px;
+	}
+
+	.exec-app-name {
+		font-size: 0.73rem;
+		font-weight: 600;
+		color: #0f172a;
+		white-space: nowrap;
+	}
+
+	.exec-store-btns {
+		display: inline-flex;
+		align-items: center;
+		gap: 3px;
+	}
+
+	.exec-store-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 3px;
+		text-decoration: none;
+		font-size: 0.64rem;
+		font-weight: 600;
+		padding: 1px 4px;
+		border-radius: 3px;
+		line-height: 1;
+		transition: all 120ms ease;
+	}
+
+	.exec-store-badge.android {
+		background: #ecfdf5;
+		color: #047857;
+		border: 1px solid #a7f3d0;
+	}
+
+	.exec-store-badge.android:hover {
+		background: #d1fae5;
+		color: #065f46;
+		border-color: #6ee7b7;
+	}
+
+	.exec-store-badge.apple {
+		background: #f1f5f9;
+		color: #334155;
+		border: 1px solid #cbd5e1;
+	}
+
+	.exec-store-badge.apple:hover {
+		background: #e2e8f0;
+		color: #0f172a;
+		border-color: #94a3b8;
+	}
+
+	.exec-hw-row {
+		display: flex;
+		align-items: baseline;
+		gap: 4px;
+		font-size: 0.74rem;
+		color: #475569;
+		margin-top: 2px;
 	}
 
 	.exec-bullets {
@@ -537,6 +672,17 @@
 	}
 
 	@media print {
+		:global(body) {
+			background: #ffffff !important;
+			color: #0f172a !important;
+			-webkit-print-color-adjust: exact !important;
+			print-color-adjust: exact !important;
+		}
+
+		.no-print {
+			display: none !important;
+		}
+
 		.exec-shell-container {
 			padding: 0 !important;
 			margin: 0 !important;
@@ -547,25 +693,217 @@
 		.exec-paper {
 			width: 210mm !important;
 			max-width: 210mm !important;
-			min-height: 297mm !important;
+			height: 297mm !important;
+			max-height: 297mm !important;
 			margin: 0 auto !important;
-			padding: 10mm 12mm !important;
+			padding: 6mm 10mm !important;
 			border: none !important;
 			box-shadow: none !important;
 			box-sizing: border-box !important;
+			overflow: hidden !important;
+		}
+
+		.exec-header {
+			margin-bottom: 6px !important;
+			padding-bottom: 6px !important;
+			border-bottom: 1.5px solid #2563eb !important;
+		}
+
+		.exec-avatar {
+			width: 58px !important;
+			height: 58px !important;
+		}
+
+		.exec-name {
+			font-size: 1.35rem !important;
+			line-height: 1.1 !important;
+		}
+
+		.exec-title {
+			font-size: 0.80rem !important;
+			margin-top: 1px !important;
+		}
+
+		.exec-contacts-bar {
+			gap: 8px !important;
+			font-size: 0.62rem !important;
+			margin-top: 3px !important;
+		}
+
+		.exec-contacts-bar a {
+			text-decoration: none !important;
+		}
+
+
+		.exec-summary {
+			font-size: 0.67rem !important;
+			line-height: 1.25 !important;
+			margin-top: 3px !important;
+			color: #334155 !important;
 		}
 
 		.exec-body-grid {
 			display: grid !important;
-			grid-template-columns: 1.6fr 1fr !important;
-			gap: 24px !important;
+			grid-template-columns: 1.55fr 1fr !important;
+			gap: 14px !important;
 		}
 
-		.exec-section,
-		.exec-side-section,
+		.exec-section-heading {
+			font-size: 0.75rem !important;
+			margin-bottom: 5px !important;
+			gap: 6px !important;
+		}
+
+		.heading-line {
+			height: 14px !important;
+			width: 3px !important;
+		}
+
+		.exec-exp-list {
+			gap: 6px !important;
+		}
+
 		.exec-exp-entry {
+			gap: 2px !important;
 			break-inside: avoid !important;
 			page-break-inside: avoid !important;
+		}
+
+		.company-text {
+			font-size: 0.76rem !important;
+		}
+
+		.period-text {
+			font-size: 0.62rem !important;
+		}
+
+		.role-text {
+			font-size: 0.68rem !important;
+		}
+
+		.projects-text {
+			font-size: 0.60rem !important;
+			padding: 2px 5px !important;
+			margin: 1px 0 2px !important;
+			border-left: 2px solid #2563eb !important;
+		}
+
+		.exec-apps-row {
+			gap: 3px !important;
+			margin-bottom: 1px !important;
+		}
+
+		.exec-apps-list {
+			gap: 2.5px !important;
+		}
+
+		.exec-app-chip {
+			padding: 0 3px !important;
+			gap: 2.5px !important;
+			border: 1px solid #94a3b8 !important;
+			background: #ffffff !important;
+		}
+
+		.exec-app-name {
+			font-size: 0.58rem !important;
+			color: #0f172a !important;
+		}
+
+		.exec-store-btns {
+			gap: 1.5px !important;
+		}
+
+		.exec-store-badge {
+			font-size: 0.51rem !important;
+			padding: 0 2px !important;
+			border-radius: 2px !important;
+		}
+
+		.exec-store-badge.android {
+			background: #ecfdf5 !important;
+			color: #047857 !important;
+			border: 1px solid #10b981 !important;
+		}
+
+		.exec-store-badge.apple {
+			background: #f8fafc !important;
+			color: #1e293b !important;
+			border: 1px solid #64748b !important;
+		}
+
+		.exec-hw-row {
+			font-size: 0.58rem !important;
+			margin-top: 1px !important;
+		}
+
+		.exec-bullets {
+			padding-left: 14px !important;
+			margin-top: 2px !important;
+			gap: 1.5px !important;
+		}
+
+		.exec-bullets li {
+			font-size: 0.62rem !important;
+			line-height: 1.18 !important;
+			color: #334155 !important;
+		}
+
+		.exec-edu-list {
+			gap: 4px !important;
+		}
+
+		.exec-edu-entry strong {
+			font-size: 0.72rem !important;
+		}
+
+		.edu-sub {
+			font-size: 0.61rem !important;
+		}
+
+		.exec-side-section {
+			margin-bottom: 5px !important;
+			break-inside: avoid !important;
+			page-break-inside: avoid !important;
+		}
+
+		.side-heading {
+			font-size: 0.68rem !important;
+			margin-bottom: 3px !important;
+			padding-bottom: 2px !important;
+		}
+
+		.side-list {
+			padding-left: 12px !important;
+			gap: 1.5px !important;
+		}
+
+		.side-list li {
+			font-size: 0.62rem !important;
+			line-height: 1.18 !important;
+		}
+
+		.side-tags {
+			gap: 2.5px !important;
+		}
+
+		.side-tag {
+			font-size: 0.60rem !important;
+			padding: 1px 4px !important;
+		}
+
+		.course-side-box {
+			padding: 3px 6px !important;
+			font-size: 0.61rem !important;
+			line-height: 1.15 !important;
+		}
+
+		.lang-exec-list {
+			gap: 2px !important;
+			font-size: 0.63rem !important;
+		}
+
+		.lang-exec-row {
+			padding: 1.5px 0 !important;
 		}
 
 		.exec-company-link,
