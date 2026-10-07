@@ -101,18 +101,20 @@ export const resumeDataUk: ResumeData = {
 		'Схемотехніка та електроніка'
 	],
 	skillsSoftware: [
+		'Git',
+		'Postman',
+		'Figma',
+		'Firebase',
 		'Jira',
 		'ClickUp',
 		'Qase TMS',
 		'Redmine',
-		'Postman',
 		'Android Studio',
 		'Tera Term',
 		'PuTTY',
 		'AmbaUSB',
 		'Intel Quartus Prime',
 		'Cura / Creality Slicer',
-		'Figma',
 		'Linux',
 		'Windows',
 		'iOS / Android'
@@ -133,7 +135,8 @@ export const resumeDataUk: ResumeData = {
 				'Мобільне тестування (Android / iOS)',
 				'Звітування про помилки та трекінг дефектів',
 				'Тест-документація (Jira, ClickUp, Qase, Redmine)',
-				'Postman (API)'
+				'Postman (API Testing)',
+				'Firebase (Crashlytics, App Distribution)'
 			]
 		},
 		{
@@ -150,12 +153,13 @@ export const resumeDataUk: ResumeData = {
 		{
 			category: 'Tools & Utilities',
 			skills: [
+				'Git',
+				'Figma',
+				'Android Studio',
 				'Tera Term / PuTTY',
 				'AmbaUSB',
 				'Intel Quartus Prime',
-				'Android Studio',
-				'Cura / Creality Slicer (3D-друк)',
-				'Figma'
+				'Cura / Creality Slicer (3D-друк)'
 			]
 		},
 		{

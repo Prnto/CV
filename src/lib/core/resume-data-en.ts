@@ -101,18 +101,20 @@ export const resumeDataEn: ResumeData = {
 		'Circuitry & digital electronics'
 	],
 	skillsSoftware: [
+		'Git',
+		'Postman',
+		'Figma',
+		'Firebase',
 		'Jira',
 		'ClickUp',
 		'Qase TMS',
 		'Redmine',
-		'Postman',
 		'Android Studio',
 		'Tera Term',
 		'PuTTY',
 		'AmbaUSB',
 		'Intel Quartus Prime',
 		'Cura / Creality Slicer',
-		'Figma',
 		'Linux',
 		'Windows',
 		'iOS / Android'
@@ -133,7 +135,8 @@ export const resumeDataEn: ResumeData = {
 				'Mobile App Testing (Android / iOS)',
 				'Bug Reporting & Defect Lifecycle Management',
 				'Test Documentation (Jira, ClickUp, Qase, Redmine)',
-				'Postman (REST API Verification)'
+				'Postman (REST API Verification)',
+				'Firebase (Crashlytics, App Distribution)'
 			]
 		},
 		{
@@ -150,12 +153,13 @@ export const resumeDataEn: ResumeData = {
 		{
 			category: 'Tools & Utilities',
 			skills: [
+				'Git',
+				'Figma',
+				'Android Studio',
 				'Tera Term / PuTTY',
 				'AmbaUSB',
 				'Intel Quartus Prime',
-				'Android Studio',
-				'Cura / Creality Slicer (3D Printing)',
-				'Figma'
+				'Cura / Creality Slicer (3D Printing)'
 			]
 		},
 		{
