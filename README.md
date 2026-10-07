@@ -1,56 +1,36 @@
-# sv
+# CV — Oleksii Kolosov (QA Engineer)
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Сучасне інтерактивне резюме на базі **SvelteKit** та **Svelte 5 Runes** з **Linux-подібною decoupled-архітектурою**, де дані (модель/ядро) повністю відокремлені від графічних оболонок (Desktop Environments / Themes).
 
-## Creating a project
+## 🏛️ Архітектура
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **Kernel Data Layer (`src/lib/core/`):**
+  - `types.ts` — суворі TypeScript інтерфейси.
+  - `resume-data-uk.ts` / `resume-data-en.ts` — чисті незмінні моделі резюме (досвід, навички, контакти, освіта, допуски).
+  - `system-state.svelte.ts` — реактивний контролер стану системи (активна оболонка, мова, пошук, звук).
+- **Pluggable Shells (`src/lib/shells/`):**
+  - **ATN Dark Reference** — оригінальний графічний темний стиль референсу (A4 single-page fit).
+  - **Hyprland QA HUD** — тайлінговий хай-тек інтерфейс стенду випробувань ATN з живою телеметрією кліматичної камери.
+  - **Linux Terminal (Arch CLI)** — інтерактивний Zsh-термінал з `neofetch`, командами (`whoami`, `experience`, `skills`, `test-run`).
+  - **Executive Paper** — корпоративна світла тема, оптимізована під HR ATS та друк A4.
 
-```sh
-# create a new project
-npx sv create my-app
-```
-
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-npx sv@1.1.1 create --template minimal --types ts --install npm ./
-```
-
-## Adding features
-
-Add features to your project with `sv add`:
+## 🚀 Запуск проєкту
 
 ```sh
-npx sv add
-```
+# Встановлення залежностей (якщо потрібно)
+npm install
 
-For example, to add Tailwind CSS:
-
-```sh
-npx sv add tailwindcss
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
+# Запуск dev-сервера
 npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+# Перевірка типів та компонентів
+npm run check
 
-## Building
-
-To create a production version of your app:
-
-```sh
+# Збірка продакшн версії
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+## 🖨️ Друк та збереження у PDF
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Для експорту резюме використовуйте комбінацію `Ctrl + P` або кнопку **«PDF / Друк»** на верхній панелі.
+Підтримується точне збереження оригінальних кольорів та фонів (`print-color-adjust: exact`) та стандартизований вигляд формату A4.
