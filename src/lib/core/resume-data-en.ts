@@ -168,6 +168,7 @@ export const resumeDataEn: ResumeData = {
 		{
 			id: 'edu-onmu',
 			institution: 'ODESA NATIONAL MARITIME UNIVERSITY',
+			institutionUrl: 'https://onmu.org.ua/',
 			period: '2008 – 2012',
 			degree: 'Specialist in Engineering',
 			specialization: 'Transport Technologies and Systems'
@@ -175,6 +176,7 @@ export const resumeDataEn: ResumeData = {
 		{
 			id: 'edu-college',
 			institution: 'CHORNOMORSK MARITIME COLLEGE OF ONMU',
+			institutionUrl: 'https://www.cmac.ukr.education/',
 			period: '2005 – 2008',
 			degree: 'Specialist Diploma in Engineering',
 			specialization: 'Stevedoring'

@@ -102,7 +102,7 @@
 		} else if (clean === 'education' || clean === 'cat education') {
 			out = `<div class="term-edu">` + data.education.map((e: EducationItem) => `
   <div class="term-card">
-    <div>🎓 <strong>${e.institution}</strong> (${e.period})</div>
+    <div>🎓 ${e.institutionUrl ? `<a href="${e.institutionUrl}" target="_blank" rel="noopener noreferrer" style="color:#38bdf8;text-decoration:underline;"><strong>${e.institution}</strong></a>` : `<strong>${e.institution}</strong>`} (${e.period})</div>
     <div>${e.degree} &bull; ${e.specialization}</div>
   </div>
 `).join('') + `</div>`;

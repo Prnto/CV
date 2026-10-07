@@ -108,7 +108,20 @@
 						{#each data.education as edu}
 							<div class="exec-edu-entry">
 								<div class="edu-top">
-									<strong>{edu.institution}</strong>
+									{#if edu.institutionUrl}
+										<a
+											href={edu.institutionUrl}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="exec-edu-link"
+											title="{edu.institution} ({edu.institutionUrl})"
+										>
+											<strong>{edu.institution}</strong>
+											<span class="exec-link-ext no-print">↗</span>
+										</a>
+									{:else}
+										<strong>{edu.institution}</strong>
+									{/if}
 									<span class="period-text">{edu.period}</span>
 								</div>
 								<div class="edu-sub">{edu.degree} &bull; {edu.specialization}</div>
@@ -409,9 +422,28 @@
 		color: #0f172a;
 	}
 
+	.exec-edu-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+		text-decoration: none;
+		color: inherit;
+	}
+
+	.exec-edu-link:hover strong {
+		color: #2563eb;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.exec-edu-link:hover .exec-link-ext {
+		color: #2563eb;
+	}
+
 	.edu-top {
 		display: flex;
 		justify-content: space-between;
+		align-items: baseline;
 	}
 
 	.edu-sub {
@@ -536,7 +568,8 @@
 			page-break-inside: avoid !important;
 		}
 
-		.exec-company-link {
+		.exec-company-link,
+		.exec-edu-link {
 			text-decoration: none !important;
 			color: inherit !important;
 		}

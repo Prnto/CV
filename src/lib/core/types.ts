@@ -33,6 +33,7 @@ export interface ExperienceItem {
 export interface EducationItem {
 	id: string;
 	institution: string;
+	institutionUrl?: string;
 	period: string;
 	degree: string;
 	specialization: string;

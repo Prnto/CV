@@ -168,6 +168,7 @@ export const resumeDataUk: ResumeData = {
 		{
 			id: 'edu-onmu',
 			institution: 'ОДЕСЬКИЙ НАЦІОНАЛЬНИЙ МОРСЬКИЙ УНІВЕРСИТЕТ',
+			institutionUrl: 'https://onmu.org.ua/',
 			period: '2008 – 2012',
 			degree: 'Спеціаліст з інженерії',
 			specialization: 'Транспортні технології та системи'
@@ -175,6 +176,7 @@ export const resumeDataUk: ResumeData = {
 		{
 			id: 'edu-college',
 			institution: 'ЧОРНОМОРСЬКИЙ МОРСЬКИЙ ПРОФЕСІЙНИЙ КОЛЕДЖ ОНМУ',
+			institutionUrl: 'https://www.cmac.ukr.education/',
 			period: '2005 – 2008',
 			degree: 'Диплом спеціаліста з інженерії',
 			specialization: 'Стивідор'

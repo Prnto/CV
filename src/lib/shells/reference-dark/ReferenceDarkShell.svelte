@@ -170,7 +170,20 @@
 									<Icon name="file-text" size={14} />
 								</div>
 								<div class="edu-details">
-									<h4 class="edu-inst" class:matched={isMatch(edu.institution)}>{edu.institution}</h4>
+									{#if edu.institutionUrl}
+										<a
+											href={edu.institutionUrl}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="edu-inst-link"
+											title="{edu.institution} ({edu.institutionUrl})"
+										>
+											<h4 class="edu-inst" class:matched={isMatch(edu.institution)}>{edu.institution}</h4>
+											<span class="edu-ext-icon no-print">↗</span>
+										</a>
+									{:else}
+										<h4 class="edu-inst" class:matched={isMatch(edu.institution)}>{edu.institution}</h4>
+									{/if}
 									<div class="edu-meta">
 										<span class="edu-period">{edu.period}</span>
 										<span class="edu-dot">&bull;</span>
@@ -724,6 +737,36 @@
 		line-height: 1.25;
 	}
 
+	.edu-inst-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 5px;
+		text-decoration: none;
+		color: inherit;
+		cursor: pointer;
+		transition: opacity 0.15s ease;
+	}
+
+	.edu-inst-link:hover .edu-inst {
+		color: #38bdf8;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.edu-ext-icon {
+		font-size: 0.72rem;
+		color: #94a3b8;
+		opacity: 0.75;
+		line-height: 1;
+		transition: transform 0.15s ease, opacity 0.15s ease, color 0.15s ease;
+	}
+
+	.edu-inst-link:hover .edu-ext-icon {
+		color: #38bdf8;
+		opacity: 1;
+		transform: translate(1px, -1px);
+	}
+
 	.edu-meta {
 		display: flex;
 		align-items: center;
@@ -1124,12 +1167,14 @@
 			padding: 2px 4px !important;
 		}
 
-		.company-link {
+		.company-link,
+		.edu-inst-link {
 			text-decoration: none !important;
 			color: inherit !important;
 		}
 
-		.company-ext-icon {
+		.company-ext-icon,
+		.edu-ext-icon {
 			display: none !important;
 		}
 	}

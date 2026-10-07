@@ -207,7 +207,22 @@
 					<div class="edu-grid-hud">
 						{#each data.education as edu}
 							<div class="edu-hud-card">
-								<div class="ehc-inst">{edu.institution}</div>
+								<div class="ehc-inst">
+									{#if edu.institutionUrl}
+										<a
+											href={edu.institutionUrl}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="hud-edu-link"
+											title="{edu.institution} ({edu.institutionUrl})"
+										>
+											<span>{edu.institution}</span>
+											<span class="hud-ext no-print">↗</span>
+										</a>
+									{:else}
+										{edu.institution}
+									{/if}
+								</div>
 								<div class="ehc-deg">{edu.degree} &bull; {edu.specialization}</div>
 								<div class="ehc-year">{edu.period}</div>
 							</div>
@@ -660,6 +675,21 @@
 		color: #ffffff;
 	}
 
+	.hud-edu-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+		text-decoration: none;
+		color: #38bdf8;
+		transition: color 0.15s ease;
+	}
+
+	.hud-edu-link:hover {
+		color: #10b981;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
 	.ehc-deg {
 		font-size: 0.76rem;
 		color: #cbd5e1;
@@ -765,7 +795,8 @@
 			page-break-inside: avoid !important;
 		}
 
-		.hud-company-link {
+		.hud-company-link,
+		.hud-edu-link {
 			text-decoration: none !important;
 			color: inherit !important;
 		}
