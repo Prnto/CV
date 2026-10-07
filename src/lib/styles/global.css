@@ -187,13 +187,14 @@ button {
 	}
 
 	html,
-	body {
+	body,
+	.resume-application,
+	.shell-host {
 		width: 100% !important;
-		min-height: 100% !important;
+		height: auto !important;
+		min-height: 0 !important;
 		margin: 0 !important;
 		padding: 0 !important;
-		background: var(--bg-primary) !important;
-		color: var(--text-primary) !important;
 		overflow: visible !important;
 		-webkit-print-color-adjust: exact !important;
 		print-color-adjust: exact !important;

@@ -497,7 +497,7 @@
 
 	.ref-canvas {
 		width: 100%;
-		max-width: 1080px;
+		max-width: 1160px;
 		background: #131824;
 		border-radius: 14px;
 		padding: 26px 30px;
@@ -1344,10 +1344,10 @@
 	}
 
 	/* ================= PRINT / A4 FIDELITY ================= */
-	/* ================= PRINT / A4 FIDELITY (AUTHENTIC DARK THEME) ================= */
+	/* ================= PRINT / A4 FIDELITY (AUTHENTIC FULL-BLEED DARK THEME) ================= */
 	@media print {
 		:global(body) {
-			background: #18181b !important;
+			background: #141418 !important;
 			color: #f4f4f5 !important;
 			-webkit-print-color-adjust: exact !important;
 			print-color-adjust: exact !important;
@@ -1360,20 +1360,23 @@
 		.ref-shell-container {
 			padding: 0 !important;
 			margin: 0 !important;
-			background: #18181b !important;
+			background: #141418 !important;
 			background-image: none !important;
 			width: 100% !important;
+			max-width: 100% !important;
+			height: auto !important;
+			min-height: 0 !important;
 		}
 
 		.ref-canvas {
-			width: 210mm !important;
-			max-width: 210mm !important;
+			width: 100% !important;
+			max-width: 100% !important;
 			height: 297mm !important;
 			max-height: 297mm !important;
-			margin: 0 auto !important;
+			margin: 0 !important;
 			padding: 5mm 7mm !important;
-			background: #1e1e24 !important;
-			border: 1px solid #2e2e36 !important;
+			background: #141418 !important;
+			border: none !important;
 			box-shadow: none !important;
 			border-radius: 0 !important;
 			box-sizing: border-box !important;
@@ -1381,90 +1384,128 @@
 		}
 
 		.ref-header {
-			padding-bottom: 5px !important;
-			margin-bottom: 5px !important;
-			border-bottom: 1.5px solid #38bdf8 !important;
+			padding-bottom: 9px !important;
+			margin-bottom: 11px !important;
+			border-bottom: 2px solid #38bdf8 !important;
 		}
 
 		.header-main-row {
-			gap: 12px !important;
+			display: flex !important;
+			flex-direction: row !important;
+			align-items: center !important;
+			text-align: left !important;
+			gap: 16px !important;
+		}
+
+		.avatar-block {
+			align-items: flex-start !important;
+			flex-shrink: 0 !important;
 		}
 
 		.avatar-wrapper {
-			width: 60px !important;
-			height: 60px !important;
-			border-color: #38bdf8 !important;
+			width: 74px !important;
+			height: 74px !important;
+			border-radius: 8px !important;
+			border: 2px solid #38bdf8 !important;
+		}
+
+		.identity-block {
+			flex: 1 !important;
+			gap: 3px !important;
+			text-align: left !important;
+		}
+
+		.name-social-row {
+			display: flex !important;
+			flex-direction: row !important;
+			justify-content: flex-start !important;
+			align-items: baseline !important;
+			gap: 10px !important;
 		}
 
 		.person-name {
-			font-size: 1.25rem !important;
+			font-size: 1.58rem !important;
 			color: #ffffff !important;
 			line-height: 1.1 !important;
+			font-weight: 800 !important;
+			letter-spacing: 0.02em !important;
+		}
+
+		.title-row {
+			display: flex !important;
+			justify-content: flex-start !important;
+			margin-top: 2px !important;
 		}
 
 		.person-title {
-			font-size: 0.78rem !important;
+			font-size: 0.92rem !important;
 			color: #38bdf8 !important;
-			margin-top: 1px !important;
+			font-weight: 600 !important;
 		}
 
 		.header-contacts-bar {
 			display: flex !important;
 			flex-wrap: wrap !important;
 			justify-content: flex-start !important;
-			gap: 4px 6px !important;
-			margin: 2px 0 3px !important;
+			gap: 5px 8px !important;
+			margin: 4px 0 !important;
 		}
 
 		.contact-pill {
-			background: #18181c !important;
-			border: 1px solid #3f3f46 !important;
+			background: #1e1e24 !important;
+			border: 1px solid #3f3f4a !important;
 			color: #e4e4e7 !important;
-			font-size: 0.60rem !important;
-			padding: 1.5px 6px !important;
+			font-size: 0.72rem !important;
+			padding: 2.5px 8px !important;
+			border-radius: 4px !important;
+			line-height: 1.15 !important;
 		}
 
 		.contact-pill :global(svg) {
 			color: #38bdf8 !important;
+			width: 13px !important;
+			height: 13px !important;
 		}
 
 		.person-bio {
-			font-size: 0.65rem !important;
-			color: #a1a1aa !important;
-			line-height: 1.25 !important;
-			margin-top: 2px !important;
+			font-size: 0.73rem !important;
+			color: #cbd5e1 !important;
+			line-height: 1.35 !important;
+			margin-top: 3px !important;
+			text-align: left !important;
 		}
 
 		.ref-main-grid {
 			display: grid !important;
 			grid-template-columns: 1.18fr 1fr !important;
-			gap: 6px !important;
+			gap: 10px !important;
 		}
 
 		.ref-column {
 			display: flex !important;
 			flex-direction: column !important;
-			gap: 6px !important;
+			gap: 9px !important;
 		}
 
 		.ref-card {
-			background: #23232a !important;
-			border: 1px solid #33333d !important;
+			background: #1b1b22 !important;
+			border: 1px solid #2e2e38 !important;
 			box-shadow: none !important;
-			padding: 5px 7px !important;
-			border-radius: 4px !important;
+			padding: 8px 10px !important;
+			border-radius: 6px !important;
 			break-inside: avoid !important;
 			page-break-inside: avoid !important;
 		}
 
 		.card-header {
-			margin-bottom: 4px !important;
-			padding-bottom: 2px !important;
+			margin-bottom: 5px !important;
+			padding-bottom: 3px !important;
 			border-bottom: 1px solid #2e2e38 !important;
 		}
 
 		.card-title {
-			font-size: 0.70rem !important;
+			font-size: 0.82rem !important;
+			font-weight: 700 !important;
 			color: #f4f4f5 !important;
 		}
 
@@ -1489,23 +1530,24 @@
 		}
 
 		.exp-list {
-			gap: 5px !important;
+			gap: 7px !important;
 		}
 
 		.exp-item {
-			padding-bottom: 4px !important;
+			padding-bottom: 5px !important;
 			border-bottom-color: #2e2e38 !important;
 		}
 
 		.exp-item.highlighted {
 			background: rgba(56, 189, 248, 0.04) !important;
 			border: 1px solid rgba(56, 189, 248, 0.22) !important;
-			padding: 4px 6px !important;
+			padding: 5px 7px !important;
 			border-radius: 4px !important;
 		}
 
 		.company-name {
-			font-size: 0.76rem !important;
+			font-size: 0.85rem !important;
+			font-weight: 700 !important;
 			color: #ffffff !important;
 		}
 
@@ -1513,7 +1555,7 @@
 		.company-logo.bastico { background: #16a34a !important; }
 
 		.exp-period {
-			font-size: 0.62rem !important;
+			font-size: 0.70rem !important;
 			color: #a1a1aa !important;
 		}
 
@@ -1521,47 +1563,50 @@
 			background: rgba(56, 189, 248, 0.14) !important;
 			color: #38bdf8 !important;
 			border-color: rgba(56, 189, 248, 0.3) !important;
-			font-size: 0.65rem !important;
-			padding: 1px 5px !important;
+			font-size: 0.72rem !important;
+			padding: 1.5px 6px !important;
+			font-weight: 600 !important;
 		}
 
 		.projects-block {
-			background: #18181c !important;
+			background: #141418 !important;
 			border-left: 2px solid #38bdf8 !important;
-			font-size: 0.60rem !important;
+			font-size: 0.67rem !important;
 			color: #d4d4d8 !important;
-			padding: 2px 4px !important;
-			margin: 1px 0 2px !important;
+			padding: 3px 6px !important;
+			margin: 3px 0 4px !important;
 		}
 
 		.apps-row {
-			gap: 3px !important;
-			margin-bottom: 1px !important;
+			gap: 4px !important;
+			margin-bottom: 2px !important;
 		}
 
 		.apps-badges-list {
-			gap: 2.5px !important;
+			gap: 3.5px !important;
 		}
 
 		.app-chip {
-			padding: 0 3px !important;
-			background: #141418 !important;
-			border: 1px solid #2d2d38 !important;
-			gap: 2.5px !important;
+			padding: 1.5px 5px !important;
+			background: #18181f !important;
+			border: 1px solid #31313d !important;
+			gap: 3.5px !important;
+			border-radius: 3px !important;
 		}
 
 		.app-chip-name {
-			font-size: 0.58rem !important;
+			font-size: 0.65rem !important;
+			font-weight: 600 !important;
 			color: #f4f4f5 !important;
 		}
 
 		.app-chip-stores {
-			gap: 1.5px !important;
+			gap: 2px !important;
 		}
 
 		.store-badge {
-			font-size: 0.51rem !important;
-			padding: 0 2px !important;
+			font-size: 0.58rem !important;
+			padding: 1px 3.5px !important;
 			border-radius: 2px !important;
 		}
 
@@ -1578,17 +1623,17 @@
 		}
 
 		.hardware-row {
-			font-size: 0.58rem !important;
-			margin-top: 1px !important;
+			font-size: 0.66rem !important;
+			margin-top: 2px !important;
 		}
 
 		.bullets-list {
-			gap: 2px !important;
+			gap: 3.5px !important;
 		}
 
 		.bullets-list li {
-			font-size: 0.62rem !important;
-			line-height: 1.18 !important;
+			font-size: 0.71rem !important;
+			line-height: 1.28 !important;
 			color: #d4d4d8 !important;
 		}
 
@@ -1597,12 +1642,13 @@
 		}
 
 		.exp-concise-line {
-			font-size: 0.63rem !important;
+			font-size: 0.71rem !important;
 			gap: 4px !important;
 		}
 
 		.exp-concise-line .exp-role {
 			color: #f4f4f5 !important;
+			font-weight: 600 !important;
 		}
 
 		.exp-concise-line .exp-desc {
@@ -1610,47 +1656,49 @@
 		}
 
 		.ach-list {
-			gap: 4px !important;
+			gap: 6px !important;
 		}
 
 		.ach-item {
-			background: #19191e !important;
-			border: 1px solid #30303a !important;
-			padding: 3px 6px !important;
-			border-radius: 3px !important;
+			background: #141419 !important;
+			border: 1px solid #2e2e38 !important;
+			padding: 4.5px 7.5px !important;
+			border-radius: 4px !important;
 		}
 
 		.ach-icon-circle {
 			background: rgba(245, 158, 11, 0.15) !important;
 			border-color: rgba(245, 158, 11, 0.3) !important;
 			color: #f59e0b !important;
-			width: 18px !important;
-			height: 18px !important;
+			width: 20px !important;
+			height: 20px !important;
 		}
 
 		.ach-title {
-			font-size: 0.67rem !important;
+			font-size: 0.75rem !important;
+			font-weight: 700 !important;
 			color: #ffffff !important;
 		}
 
 		.ach-subtitle {
-			font-size: 0.60rem !important;
+			font-size: 0.68rem !important;
 			color: #fbbf24 !important;
 		}
 
 		.ach-details {
-			font-size: 0.60rem !important;
-			color: #a1a1aa !important;
-			line-height: 1.15 !important;
+			font-size: 0.68rem !important;
+			color: #cbd5e1 !important;
+			line-height: 1.22 !important;
 		}
 
 		.skills-section-block {
-			margin-bottom: 4px !important;
+			margin-bottom: 6px !important;
 		}
 
 		.sub-label {
-			font-size: 0.63rem !important;
-			margin-bottom: 2px !important;
+			font-size: 0.71rem !important;
+			font-weight: 600 !important;
+			margin-bottom: 3px !important;
 			color: #38bdf8 !important;
 		}
 
@@ -1663,13 +1711,13 @@
 		}
 
 		.chips-grid {
-			gap: 2.5px !important;
+			gap: 3.5px !important;
 		}
 
 		.chip {
-			font-size: 0.61rem !important;
-			padding: 1px 4px !important;
-			background: #18181c !important;
+			font-size: 0.69rem !important;
+			padding: 2px 5.5px !important;
+			background: #141419 !important;
 			color: #e4e4e7 !important;
 			border: 1px solid #383842 !important;
 			border-radius: 3px !important;
@@ -1688,70 +1736,73 @@
 		}
 
 		.edu-list {
-			gap: 4px !important;
+			gap: 6px !important;
 		}
 
 		.edu-item {
-			padding-bottom: 3px !important;
+			padding-bottom: 4px !important;
 			border-bottom-color: #2e2e38 !important;
 		}
 
 		.edu-inst {
-			font-size: 0.68rem !important;
+			font-size: 0.75rem !important;
+			font-weight: 700 !important;
 			color: #ffffff !important;
 		}
 
 		.edu-period {
-			font-size: 0.60rem !important;
+			font-size: 0.68rem !important;
 			color: #a1a1aa !important;
 		}
 
 		.edu-meta {
-			font-size: 0.60rem !important;
+			font-size: 0.68rem !important;
 			color: #a1a1aa !important;
 		}
 
 		.course-box {
-			background: rgba(56, 189, 248, 0.04) !important;
-			border: 1px solid rgba(56, 189, 248, 0.22) !important;
-			padding: 3px 5px !important;
-			border-radius: 3px !important;
-			margin-top: 3px !important;
+			background: rgba(56, 189, 248, 0.05) !important;
+			border: 1px solid rgba(56, 189, 248, 0.25) !important;
+			padding: 4.5px 7.5px !important;
+			border-radius: 4px !important;
+			margin-top: 4px !important;
 		}
 
 		.course-badge {
-			font-size: 0.58rem !important;
+			font-size: 0.66rem !important;
+			font-weight: 700 !important;
 			color: #38bdf8 !important;
 		}
 
 		.course-year {
-			font-size: 0.58rem !important;
+			font-size: 0.65rem !important;
 			color: #a1a1aa !important;
 		}
 
 		.course-text {
-			font-size: 0.59rem !important;
+			font-size: 0.68rem !important;
 			color: #d4d4d8 !important;
-			line-height: 1.15 !important;
+			line-height: 1.22 !important;
 		}
 
 		.lang-hobbies-split {
-			gap: 6px !important;
+			gap: 9px !important;
 		}
 
 		.sub-label-mini {
-			font-size: 0.60rem !important;
-			color: #71717a !important;
-			margin-bottom: 2px !important;
+			font-size: 0.67rem !important;
+			color: #94a3b8 !important;
+			margin-bottom: 3px !important;
+			font-weight: 600 !important;
 		}
 
 		.lang-list {
-			gap: 1.5px !important;
+			gap: 2.5px !important;
 		}
 
 		.lang-row {
-			font-size: 0.61rem !important;
-			padding: 1px 0 !important;
+			font-size: 0.69rem !important;
+			padding: 1.5px 0 !important;
 		}
 
 		.lang-name {
@@ -1760,16 +1811,17 @@
 
 		.lang-level {
 			color: #38bdf8 !important;
+			font-weight: 600 !important;
 		}
 
 		.hobbies-grid {
-			gap: 2.5px !important;
+			gap: 3.5px !important;
 		}
 
 		.hobby-pill {
-			font-size: 0.59rem !important;
-			padding: 1px 4px !important;
-			background: #18181c !important;
+			font-size: 0.67rem !important;
+			padding: 2px 5.5px !important;
+			background: #141419 !important;
 			border: 1px solid #383842 !important;
 			color: #d4d4d8 !important;
 			border-radius: 3px !important;

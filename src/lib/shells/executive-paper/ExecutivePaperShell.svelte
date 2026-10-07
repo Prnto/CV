@@ -695,16 +695,15 @@
 		}
 
 		.exec-paper {
-			width: 210mm !important;
-			max-width: 210mm !important;
-			height: 297mm !important;
-			max-height: 297mm !important;
-			margin: 0 auto !important;
-			padding: 6mm 10mm !important;
+			width: 100% !important;
+			max-width: 100% !important;
+			min-height: 100% !important;
+			margin: 0 !important;
+			padding: 5mm 8mm !important;
 			border: none !important;
 			box-shadow: none !important;
 			box-sizing: border-box !important;
-			overflow: hidden !important;
+			overflow: visible !important;
 		}
 
 		.exec-header {
