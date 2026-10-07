@@ -916,5 +916,123 @@
 			display: none !important;
 		}
 	}
+
+	/* =========================================================
+	   RESPONSIVE DESIGN SYSTEM: DESKTOPS, LAPTOPS, TABLETS & MOBILES
+	   ========================================================= */
+
+	/* Tablets (<= 900px) */
+	@media screen and (max-width: 900px) {
+		.exec-shell-container {
+			padding: 16px 12px 60px;
+		}
+
+		.exec-paper {
+			padding: 32px 28px;
+		}
+
+		.exec-body-grid {
+			grid-template-columns: 1fr;
+			gap: 24px;
+		}
+	}
+
+	/* Smartphones (<= 640px) */
+	@media screen and (max-width: 640px) {
+		.exec-shell-container {
+			padding: 8px max(6px, env(safe-area-inset-right, 6px)) max(40px, env(safe-area-inset-bottom, 40px)) max(6px, env(safe-area-inset-left, 6px));
+		}
+
+		.exec-paper {
+			padding: 18px 14px;
+			border-radius: 6px;
+		}
+
+		.exec-header-main {
+			flex-direction: column-reverse;
+			align-items: center;
+			text-align: center;
+			gap: 14px;
+		}
+
+		.exec-name {
+			font-size: clamp(1.5rem, 6vw, 1.95rem);
+		}
+
+		.exec-title {
+			font-size: 0.95rem;
+		}
+
+		.exec-contacts-bar {
+			gap: 8px;
+			justify-content: center;
+			font-size: 0.78rem;
+		}
+
+		.contact-entry {
+			flex: 1 1 calc(50% - 8px);
+			min-width: 140px;
+			justify-content: center;
+		}
+
+		.exec-summary {
+			font-size: 0.82rem;
+			text-align: left;
+		}
+
+		.exec-apps-row {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 4px;
+		}
+
+		.exec-apps-list {
+			width: 100%;
+			gap: 4px;
+		}
+
+		.exec-app-chip {
+			padding: 2px 5px;
+		}
+
+		.exec-store-badge {
+			padding: 2px 5px;
+			font-size: 0.65rem;
+			min-height: 24px;
+		}
+
+		.exec-hw-row {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 2px;
+		}
+
+		.edu-top {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 2px;
+		}
+	}
+
+	/* Compact Phones (<= 380px) */
+	@media screen and (max-width: 380px) {
+		.exec-paper {
+			padding: 14px 10px;
+		}
+
+		.contact-entry {
+			flex: 1 1 100%;
+			min-width: 100%;
+		}
+
+		.exec-avatar {
+			width: 80px;
+			height: 80px;
+		}
+
+		.exec-name {
+			font-size: 1.4rem;
+		}
+	}
 </style>
 

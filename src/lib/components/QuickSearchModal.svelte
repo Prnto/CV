@@ -175,15 +175,16 @@
 		display: flex;
 		align-items: flex-start;
 		justify-content: center;
-		padding-top: 10vh;
+		padding: max(16px, env(safe-area-inset-top, 16px)) 12px 16px;
 	}
 
 	.search-modal {
 		background: #1e222d;
 		border: 1px solid rgba(255, 255, 255, 0.12);
 		border-radius: 14px;
-		width: 90%;
+		width: 95%;
 		max-width: 640px;
+		max-height: 85vh;
 		box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
 		overflow: hidden;
 		display: flex;

@@ -1763,21 +1763,52 @@
 		}
 	}
 
-	/* Responsive for smaller screens */
-	@media (max-width: 860px) {
+	/* =========================================================
+	   RESPONSIVE DESIGN SYSTEM: DESKTOPS, LAPTOPS, TABLETS & MOBILES
+	   ========================================================= */
+
+	/* Laptops & Tablets Landscape (<= 1024px) */
+	@media screen and (max-width: 1024px) {
+		.ref-shell-container {
+			padding: 16px 12px 60px;
+		}
+
+		.ref-canvas {
+			padding: 22px 20px;
+		}
+
+		.ref-main-grid {
+			grid-template-columns: 1.5fr 1fr;
+			gap: 16px;
+		}
+
+		.person-name {
+			font-size: 1.75rem;
+		}
+	}
+
+	/* Tablets Portrait & Large Phablets (<= 860px) */
+	@media screen and (max-width: 860px) {
+		.ref-shell-container {
+			padding: 12px max(10px, env(safe-area-inset-right, 10px)) max(50px, env(safe-area-inset-bottom, 50px)) max(10px, env(safe-area-inset-left, 10px));
+		}
+
 		.ref-canvas {
 			padding: 18px 16px;
+			border-radius: 12px;
 		}
 
 		.header-main-row {
 			flex-direction: column;
 			align-items: center;
 			text-align: center;
+			gap: 16px;
 		}
 
 		.name-social-row {
 			flex-direction: column;
 			align-items: center;
+			gap: 10px;
 		}
 
 		.title-row {
@@ -1790,10 +1821,131 @@
 
 		.ref-main-grid {
 			grid-template-columns: 1fr;
+			gap: 16px;
 		}
 
 		.lang-hobbies-split {
 			grid-template-columns: 1fr;
+			gap: 14px;
+		}
+	}
+
+	/* Standard Mobile Phones (<= 600px) - iPhones, Android flagships */
+	@media screen and (max-width: 600px) {
+		.ref-shell-container {
+			padding: 8px max(6px, env(safe-area-inset-right, 6px)) max(40px, env(safe-area-inset-bottom, 40px)) max(6px, env(safe-area-inset-left, 6px));
+		}
+
+		.ref-canvas {
+			padding: 16px 12px;
+			border-radius: 10px;
+		}
+
+		.ref-header {
+			padding-bottom: 14px;
+			margin-bottom: 14px;
+		}
+
+		.person-name {
+			font-size: clamp(1.4rem, 6vw, 1.7rem);
+			letter-spacing: 0.02em;
+		}
+
+		.person-title {
+			font-size: 0.85rem;
+			line-height: 1.35;
+		}
+
+		.summary-text {
+			font-size: 0.82rem;
+			line-height: 1.45;
+			text-align: left;
+		}
+
+		.header-contacts-bar {
+			gap: 5px;
+			justify-content: stretch;
+		}
+
+		.contact-pill {
+			font-size: 0.72rem;
+			padding: 5px 8px;
+			flex: 1 1 calc(50% - 5px);
+			min-width: 140px;
+			justify-content: center;
+		}
+
+		.exp-heading {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 4px;
+		}
+
+		.apps-row {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 5px;
+		}
+
+		.apps-badges-list {
+			width: 100%;
+			gap: 5px;
+		}
+
+		.app-chip {
+			padding: 3px 6px;
+		}
+
+		.store-badge {
+			padding: 2px 5px;
+			font-size: 0.65rem;
+			min-height: 24px;
+		}
+
+		.hardware-row {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 2px;
+		}
+
+		.ach-item {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 6px;
+		}
+
+		.chips-grid {
+			gap: 5px;
+		}
+
+		.chip {
+			font-size: 0.74rem;
+			padding: 4px 8px;
+		}
+	}
+
+	/* Compact Mobile Screens (<= 380px) - iPhone SE, older Androids */
+	@media screen and (max-width: 380px) {
+		.ref-canvas {
+			padding: 12px 8px;
+		}
+
+		.contact-pill {
+			flex: 1 1 100%;
+			min-width: 100%;
+		}
+
+		.avatar-wrapper {
+			width: 86px;
+			height: 86px;
+		}
+
+		.person-name {
+			font-size: 1.35rem;
+		}
+
+		.bullets-list li {
+			font-size: 0.74rem;
 		}
 	}
 </style>

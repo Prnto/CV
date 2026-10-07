@@ -93,10 +93,11 @@
 		background: #181d28;
 		border: 1px solid rgba(255, 255, 255, 0.12);
 		border-radius: 16px;
-		width: 100%;
+		width: 95%;
 		max-width: 680px;
+		max-height: 90vh;
+		overflow-y: auto;
 		box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7);
-		overflow: hidden;
 		animation: modal-pop 160ms cubic-bezier(0, 0, 0.2, 1);
 	}
 
