@@ -865,28 +865,43 @@
 		align-items: center;
 		justify-content: space-between;
 		font-size: 0.73rem;
+		gap: 6px;
+		white-space: nowrap;
 	}
 
 	.lang-badge-group {
 		display: flex;
 		align-items: center;
-		gap: 5px;
+		gap: 6px;
+		flex-shrink: 0;
 	}
 
 	.flag-pill {
 		font-size: 0.6rem;
 		font-weight: 800;
-		padding: 1px 3px;
+		padding: 1px 4px;
 		border-radius: 2px;
 		font-family: var(--font-mono);
+		line-height: 1.2;
 	}
 
 	.flag-pill.ua { background: #0057b7; color: #ffd700; }
 	.flag-pill.en { background: #dc2626; color: #ffffff; }
 	.flag-pill.other { background: #475569; color: #ffffff; }
 
-	.lang-name { color: #ffffff; }
-	.lang-level { color: #94a3b8; font-size: 0.69rem; }
+	.lang-name {
+		color: #ffffff;
+		font-weight: 500;
+	}
+
+	.lang-level {
+		color: #94a3b8;
+		font-size: 0.72rem;
+		font-family: var(--font-mono);
+		font-weight: 500;
+		flex-shrink: 0;
+		text-align: right;
+	}
 
 	/* CONTACTS */
 	.contacts-list {
@@ -1097,7 +1112,12 @@
 			padding: 2px 5px !important;
 		}
 
-		.lang-row,
+		.lang-row {
+			font-size: 0.68rem !important;
+			padding: 2px 0 !important;
+			white-space: nowrap !important;
+		}
+
 		.contact-item-btn,
 		.contact-item-static {
 			font-size: 0.68rem !important;

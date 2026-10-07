@@ -488,8 +488,11 @@
 	.lang-exec-row {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		padding: 4px 0;
 		border-bottom: 1px dashed #e2e8f0;
+		white-space: nowrap;
+		gap: 8px;
 	}
 
 	@media screen and (max-width: 800px) {

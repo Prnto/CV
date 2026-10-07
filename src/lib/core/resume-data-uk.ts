@@ -216,19 +216,19 @@ export const resumeDataUk: ResumeData = {
 	languages: [
 		{
 			language: 'Українська',
-			level: 'Вільно (Native)',
+			level: 'вільно',
 			badge: 'UA',
 			proficiencyPercent: 100
 		},
 		{
 			language: 'Англійська',
-			level: 'А2 (Pre-Intermediate)',
+			level: 'А2',
 			badge: 'EN',
 			proficiencyPercent: 45
 		},
 		{
 			language: 'Російська',
-			level: 'Вільно',
+			level: 'вільно',
 			badge: 'RU',
 			proficiencyPercent: 100
 		}

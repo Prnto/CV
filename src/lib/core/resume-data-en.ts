@@ -216,13 +216,13 @@ export const resumeDataEn: ResumeData = {
 	languages: [
 		{
 			language: 'Ukrainian',
-			level: 'Native (Fluent)',
+			level: 'Native',
 			badge: 'UA',
 			proficiencyPercent: 100
 		},
 		{
 			language: 'English',
-			level: 'A2 (Pre-Intermediate)',
+			level: 'A2',
 			badge: 'EN',
 			proficiencyPercent: 45
 		},
