@@ -20,6 +20,7 @@ export interface ExperienceItem {
 	id: string;
 	company: string;
 	companyShort?: string;
+	companyUrl?: string;
 	period: string;
 	role: string;
 	category?: 'qa' | 'management' | 'inspection';

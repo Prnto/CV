@@ -79,7 +79,7 @@
 		} else if (clean === 'experience' || clean === 'cat experience' || clean === 'exp') {
 			out = `<div class="term-exp">` + data.experience.map((e: ExperienceItem) => `
   <div class="term-card">
-    <div class="term-card-title">🏢 <strong>${e.company}</strong> (${e.period})</div>
+    <div class="term-card-title">🏢 ${e.companyUrl ? `<a href="${e.companyUrl}" target="_blank" rel="noopener noreferrer" style="color:#38bdf8;text-decoration:underline;"><strong>${e.company}</strong></a>` : `<strong>${e.company}</strong>`} (${e.period})</div>
     <div class="term-card-role">Посада: ${e.role}</div>
     ${e.projects ? `<div class="term-card-projects">Проєкти: ${e.projects.join(', ')}</div>` : ''}
     <ul class="term-bullets">

@@ -90,12 +90,30 @@
 							<article class="exp-item" class:highlighted={item.highlight}>
 								<div class="exp-heading">
 									<div class="company-badge-row">
-										{#if item.id === 'exp-atn'}
-											<span class="company-logo atn">ATN</span>
-										{:else if item.id === 'exp-bastico'}
-											<span class="company-logo bastico">B</span>
+										{#if item.companyUrl}
+											<a
+												href={item.companyUrl}
+												target="_blank"
+												rel="noopener noreferrer"
+												class="company-link"
+												title="{item.company} ({item.companyUrl})"
+											>
+												{#if item.id === 'exp-atn'}
+													<span class="company-logo atn">ATN</span>
+												{:else if item.id === 'exp-bastico'}
+													<span class="company-logo bastico">B</span>
+												{/if}
+												<h4 class="company-name" class:matched={isMatch(item.company)}>{item.company}</h4>
+												<span class="company-ext-icon no-print">↗</span>
+											</a>
+										{:else}
+											{#if item.id === 'exp-atn'}
+												<span class="company-logo atn">ATN</span>
+											{:else if item.id === 'exp-bastico'}
+												<span class="company-logo bastico">B</span>
+											{/if}
+											<h4 class="company-name" class:matched={isMatch(item.company)}>{item.company}</h4>
 										{/if}
-										<h4 class="company-name" class:matched={isMatch(item.company)}>{item.company}</h4>
 									</div>
 									<span class="exp-period">{item.period}</span>
 								</div>
@@ -541,6 +559,41 @@
 		display: flex;
 		align-items: center;
 		gap: 6px;
+	}
+
+	.company-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		text-decoration: none;
+		color: inherit;
+		cursor: pointer;
+		border-radius: 4px;
+		transition: opacity 0.15s ease;
+	}
+
+	.company-link:hover .company-name {
+		color: #38bdf8;
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.company-link:hover .company-logo {
+		filter: brightness(1.2);
+	}
+
+	.company-ext-icon {
+		font-size: 0.72rem;
+		color: #94a3b8;
+		opacity: 0.75;
+		line-height: 1;
+		transition: transform 0.15s ease, opacity 0.15s ease, color 0.15s ease;
+	}
+
+	.company-link:hover .company-ext-icon {
+		color: #38bdf8;
+		opacity: 1;
+		transform: translate(1px, -1px);
 	}
 
 	.company-logo {
@@ -1049,6 +1102,15 @@
 		.contact-item-static {
 			font-size: 0.68rem !important;
 			padding: 2px 4px !important;
+		}
+
+		.company-link {
+			text-decoration: none !important;
+			color: inherit !important;
+		}
+
+		.company-ext-icon {
+			display: none !important;
 		}
 	}
 </style>

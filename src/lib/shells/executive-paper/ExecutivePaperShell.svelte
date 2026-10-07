@@ -64,7 +64,20 @@
 						{#each data.experience as exp}
 							<div class="exec-exp-entry">
 								<div class="exp-title-row">
-									<h4 class="company-text">{exp.company}</h4>
+									{#if exp.companyUrl}
+										<a
+											href={exp.companyUrl}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="exec-company-link"
+											title="{exp.company} ({exp.companyUrl})"
+										>
+											<h4 class="company-text">{exp.company}</h4>
+											<span class="exec-link-ext no-print">↗</span>
+										</a>
+									{:else}
+										<h4 class="company-text">{exp.company}</h4>
+									{/if}
 									<span class="period-text">{exp.period}</span>
 								</div>
 								<div class="role-text">{exp.role}</div>
@@ -331,6 +344,31 @@
 		color: #0f172a;
 	}
 
+	.exec-company-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 5px;
+		text-decoration: none;
+		color: inherit;
+	}
+
+	.exec-company-link:hover .company-text {
+		color: #2563eb;
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.exec-link-ext {
+		font-size: 0.72rem;
+		color: #64748b;
+		opacity: 0.8;
+		transition: color 0.15s ease;
+	}
+
+	.exec-company-link:hover .exec-link-ext {
+		color: #2563eb;
+	}
+
 	.period-text {
 		font-size: 0.8rem;
 		color: #64748b;
@@ -493,6 +531,15 @@
 		.exec-exp-entry {
 			break-inside: avoid !important;
 			page-break-inside: avoid !important;
+		}
+
+		.exec-company-link {
+			text-decoration: none !important;
+			color: inherit !important;
+		}
+
+		.exec-link-ext {
+			display: none !important;
 		}
 	}
 </style>

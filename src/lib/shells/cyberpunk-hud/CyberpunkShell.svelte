@@ -116,7 +116,20 @@
 								<div class="tc-header">
 									<div class="tc-company">
 										<span class="tc-bullet">&gt;</span>
-										<strong>{exp.company}</strong>
+										{#if exp.companyUrl}
+											<a
+												href={exp.companyUrl}
+												target="_blank"
+												rel="noopener noreferrer"
+												class="hud-company-link"
+												title="{exp.company} ({exp.companyUrl})"
+											>
+												<strong>{exp.company}</strong>
+												<span class="hud-ext no-print">↗</span>
+											</a>
+										{:else}
+											<strong>{exp.company}</strong>
+										{/if}
 									</div>
 									<span class="tc-period">{exp.period}</span>
 								</div>
@@ -516,6 +529,26 @@
 		margin-right: 6px;
 	}
 
+	.hud-company-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+		text-decoration: none;
+		color: #38bdf8;
+		transition: color 0.15s ease;
+	}
+
+	.hud-company-link:hover {
+		color: #10b981;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.hud-ext {
+		font-size: 0.72rem;
+		opacity: 0.8;
+	}
+
 	.tc-period {
 		font-size: 0.74rem;
 		color: #64748b;
@@ -730,6 +763,15 @@
 		.tile-window {
 			break-inside: avoid !important;
 			page-break-inside: avoid !important;
+		}
+
+		.hud-company-link {
+			text-decoration: none !important;
+			color: inherit !important;
+		}
+
+		.hud-ext {
+			display: none !important;
 		}
 	}
 </style>
