@@ -3,8 +3,8 @@ import type { ShellDefinition, ShellId } from './types';
 export const SHELLS: ShellDefinition[] = [
 	{
 		id: 'reference-dark',
-		name: 'Дарк',
-		nameUk: 'Дарк',
+		name: 'Темна',
+		nameUk: 'Темна',
 		nameEn: 'Dark',
 		description: 'Оригінальна темна тема (Dark Reference)',
 		descriptionUk: 'Оригінальна темна тема (Dark Reference)',
@@ -41,8 +41,8 @@ export const SHELLS: ShellDefinition[] = [
 	},
 	{
 		id: 'executive-paper',
-		name: 'Вайт',
-		nameUk: 'Вайт',
+		name: 'Світла',
+		nameUk: 'Світла',
 		nameEn: 'White',
 		description: 'Корпоративна світла тема (White / Print ATS)',
 		descriptionUk: 'Корпоративна світла тема (White / Print ATS)',
