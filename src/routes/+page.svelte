@@ -49,6 +49,9 @@
 />
 
 <div class="resume-application">
+	<a href="#main-content" class="skip-link">
+		{systemKernel.locale === 'uk' ? 'Перейти до основного вмісту' : 'Skip to main content'}
+	</a>
 	<TopPanel />
 	<ShellContainer />
 	<QuickSearchModal />

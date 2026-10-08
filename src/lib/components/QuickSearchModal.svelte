@@ -92,7 +92,14 @@
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div class="search-backdrop no-print" onclick={() => (systemKernel.isSearchOpen = false)} onkeydown={handleKeydown}>
-		<div class="search-modal" onclick={(e) => e.stopPropagation()}>
+		<div
+			class="search-modal"
+			role="dialog"
+			aria-modal="true"
+			tabindex="-1"
+			aria-label={systemKernel.locale === 'uk' ? 'Швидкий пошук по резюме' : 'Quick search resume'}
+			onclick={(e) => e.stopPropagation()}
+		>
 			<div class="search-header">
 				<Icon name="search" size={20} class="search-icon" />
 				<input

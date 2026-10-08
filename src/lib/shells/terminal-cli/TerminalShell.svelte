@@ -120,9 +120,9 @@
   <div>📞 Телефон: <a href="tel:${data.personal.phone}">${data.personal.phone}</a></div>
   <div>✉️ Email: <a href="mailto:${data.personal.email}">${data.personal.email}</a></div>
   <div>📍 Локація: ${data.personal.location}</div>
-  <div>🔗 LinkedIn: <a href="https://linkedin.com/in/oleksii-kolosov" target="_blank">linkedin.com/in/oleksii-kolosov</a></div>
-  <div>✈️ Telegram: <a href="https://t.me/Mr_Pronto" target="_blank">@Mr_Pronto</a></div>
-  <div>🐙 GitHub: <a href="https://github.com/Prnto" target="_blank">github.com/Prnto</a></div>
+  <div>🔗 LinkedIn: <a href="https://linkedin.com/in/oleksii-kolosov" target="_blank" rel="noopener noreferrer">linkedin.com/in/oleksii-kolosov</a></div>
+  <div>✈️ Telegram: <a href="https://t.me/Mr_Pronto" target="_blank" rel="noopener noreferrer">@Mr_Pronto</a></div>
+  <div>🐙 GitHub: <a href="https://github.com/Prnto" target="_blank" rel="noopener noreferrer">github.com/Prnto</a></div>
 </div>`;
 		} else if (clean === 'neofetch') {
 			out = initialBanner;

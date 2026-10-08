@@ -95,8 +95,8 @@
 							<span class="hud-pill">📍 {data.personal.location}</span>
 							<a href="tel:{data.personal.phone}" class="hud-pill">📞 {data.personal.phone}</a>
 							<a href="mailto:{data.personal.email}" class="hud-pill">✉️ {data.personal.email}</a>
-							<a href="https://linkedin.com/in/oleksii-kolosov" target="_blank" class="hud-pill">🔗 LinkedIn</a>
-							<a href="https://t.me/Mr_Pronto" target="_blank" class="hud-pill">✈️ @Mr_Pronto</a>
+							<a href="https://linkedin.com/in/oleksii-kolosov" target="_blank" rel="noopener noreferrer" class="hud-pill">🔗 LinkedIn</a>
+							<a href="https://t.me/Mr_Pronto" target="_blank" rel="noopener noreferrer" class="hud-pill">✈️ @Mr_Pronto</a>
 						</div>
 					</div>
 				</div>

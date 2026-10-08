@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { systemKernel } from '#lib/core/system-state.svelte';
 	import ReferenceDarkShell from './reference-dark/ReferenceDarkShell.svelte';
 	import TerminalShell from './terminal-cli/TerminalShell.svelte';
@@ -9,7 +9,7 @@
 	let data = $derived(systemKernel.data);
 </script>
 
-<div class="shell-host" data-shell-active={currentShell}>
+<main id="main-content" class="shell-host" data-shell-active={currentShell}>
 	{#if currentShell === 'reference-dark'}
 		<ReferenceDarkShell {data} />
 	{:else if currentShell === 'terminal-cli'}
@@ -19,7 +19,7 @@
 	{:else if currentShell === 'executive-paper'}
 		<ExecutivePaperShell {data} />
 	{/if}
-</div>
+</main>
 
 <style>
 	.shell-host {

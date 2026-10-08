@@ -3,15 +3,28 @@
 	import Icon from './Icon.svelte';
 </script>
 
+<svelte:window onkeydown={(e) => {
+	if (systemKernel.showSpecsModal && e.key === 'Escape') {
+		systemKernel.showSpecsModal = false;
+	}
+}} />
+
 {#if systemKernel.showSpecsModal}
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div class="modal-backdrop no-print" onclick={() => (systemKernel.showSpecsModal = false)}>
-		<div class="modal-card" onclick={(e) => e.stopPropagation()}>
+		<div
+			class="modal-card"
+			role="dialog"
+			aria-modal="true"
+			tabindex="-1"
+			aria-labelledby="arch-modal-title"
+			onclick={(e) => e.stopPropagation()}
+		>
 			<div class="modal-header">
 				<div class="modal-title-group">
 					<Icon name="cpu" size={20} class="accent-icon" />
-					<h3>Архітектура проєкту: Linux-подібне розділення</h3>
+					<h3 id="arch-modal-title">Архітектура проєкту: Linux-подібне розділення</h3>
 				</div>
 				<button class="close-btn" onclick={() => (systemKernel.showSpecsModal = false)} aria-label="Закрити">
 					<Icon name="x" size={18} />

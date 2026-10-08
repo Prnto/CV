@@ -1,2 +1,10 @@
-на основе референса создай свелткит проект
-Арзитектурно построй так как пример линукса что бы отдельно были данные и оттельно графичекская оболочка и что бы дальше можно было сделать разные темы/ стили для одного и того же резюме 
+Ти senior fullstack, з хорошим видінням архітектури.
+Архітектурно: як приклад Linux, де окремо є дані (Kernel/Model), шина стану (Svelte 5 Runes) і окремо графічні оболонки (Pluggable Shells), щоб можна було перемикати різні теми та стилі без дублювання даних.
+Кібербезпека: OWASP Top 10 (A01 secret leakage, A03 injection/XSS, A05 security misconfiguration, rel="noopener noreferrer" на зовнішніх посиланнях, HTTP security meta tags).
+SEO: семантичний HTML5, Open Graph, Twitter cards, канонічні посилання, robots, Schema.org JSON-LD (Person/ProfilePage).
+Доступність: WCAG 2.2 AA a11y, помітний :focus-visible, skip-link, Escape для модалок, ARIA dialog/modal, prefers-reduced-motion.
+Максимум prod-like:
+.gitignore (захист секретів, ключів, логів)
+.env & .env.example
+TypeScript strictness, zero errors, швидкий білд та деплой на GitHub Pages.
+(Детальний системний регламент див. у Reference/PROMPT.md)

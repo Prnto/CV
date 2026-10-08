@@ -21,6 +21,77 @@
 			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
 			rel="stylesheet"
 		/>
+		<!-- Security (OWASP Top 10 Protections) -->
+		<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+		<meta name="referrer" content="strict-origin-when-cross-origin" />
+		<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+
+		<!-- SEO & Indexing -->
+		<link rel="canonical" href="https://prnto.github.io/CV/" />
+		<meta name="robots" content="index, follow" />
+
+		<!-- Open Graph / Facebook / LinkedIn -->
+		<meta property="og:type" content="profile" />
+		<meta property="og:site_name" content="Олексій Колосов // QA Engineer CV" />
+		<meta property="og:title" content="Колосов Олексій | QA Інженер апаратного та вбудованого ПЗ / Manual QA Інженер" />
+		<meta
+			property="og:description"
+			content="Резюме: Колосов Олексій — QA Інженер апаратного та вбудованого ПЗ / Manual QA Інженер (5.5+ років досвіду). Тестування Obsidian-4, ATN, кліматичні камери, калібратор чорного тіла, прошивка мікропроцесорів, мобільні застосунки Android/iOS."
+		/>
+		<meta property="og:url" content="https://prnto.github.io/CV/" />
+		<meta property="og:image" content="https://prnto.github.io/CV/images/avatar.jpg" />
+		<meta property="og:image:alt" content="Колосов Олексій — QA Інженер" />
+		<meta property="og:locale" content="uk_UA" />
+		<meta property="og:locale:alternate" content="en_US" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Колосов Олексій | QA Інженер апаратного та вбудованого ПЗ" />
+		<meta
+			name="twitter:description"
+			content="Резюме: Колосов Олексій — QA Інженер (5.5+ років досвіду). Апаратне та вбудоване ПЗ, оптико-електронні прилади, кліматичні камери, Android/iOS."
+		/>
+		<meta name="twitter:image" content="https://prnto.github.io/CV/images/avatar.jpg" />
+
+		<!-- Structured Data: Schema.org (JSON-LD) -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "ProfilePage",
+			"mainEntity": {
+				"@type": "Person",
+				"name": "Олексій Колосов",
+				"alternateName": "Oleksii Kolosov",
+				"jobTitle": "QA Інженер апаратного та вбудованого ПЗ / Manual QA Інженер",
+				"image": "https://prnto.github.io/CV/images/avatar.jpg",
+				"url": "https://prnto.github.io/CV/",
+				"address": {
+					"@type": "PostalAddress",
+					"addressLocality": "Одеса",
+					"addressCountry": "UA"
+				},
+				"email": "prontos317@gmail.com",
+				"telephone": "+380671844288",
+				"sameAs": [
+					"https://github.com/Prnto",
+					"https://linkedin.com/in/oleksii-kolosov",
+					"https://t.me/Mr_Pronto"
+				],
+				"knowsAbout": [
+					"Hardware QA",
+					"Embedded Software Testing",
+					"Firmware Flashing",
+					"Obsidian-4",
+					"Climate Chamber Testing",
+					"Black Body Calibrator",
+					"Mobile App Testing",
+					"Jira",
+					"TestRail"
+				]
+			}
+		}
+		</script>
+
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
