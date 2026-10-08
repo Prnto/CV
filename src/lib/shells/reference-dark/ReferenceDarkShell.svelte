@@ -419,50 +419,63 @@
 					</div>
 				</section>
 
-				<!-- LANGUAGES & HOBBIES CARD -->
-				<section class="ref-card lang-hobbies-card">
+				<!-- LANGUAGES CARD -->
+				<section class="ref-card languages-card">
 					<div class="card-header">
 						<h3 class="card-title">
 							<span class="title-accent-dot blue"></span>
-							<span class="title-text">{data.locale === 'uk' ? 'МОВИ ТА ХОБІ' : 'LANGUAGES & INTERESTS'}</span>
+							<span class="title-text">{data.locale === 'uk' ? 'ВОЛОДІННЯ МОВАМИ' : 'LANGUAGES'}</span>
 						</h3>
 					</div>
 
-					<div class="lang-hobbies-split">
-						<!-- Languages Column -->
-						<div class="lang-col">
-							<div class="sub-label-mini">
-								{data.locale === 'uk' ? 'Володіння мовами' : 'Languages'}
-							</div>
-							<div class="lang-list">
-								{#each data.languages as lang}
-									<div class="lang-row">
-										<div class="lang-badge-group">
-											{#if lang.badge}
-												<span class="flag-pill {lang.badge.toLowerCase()}">{lang.badge}</span>
-											{/if}
-											<span class="lang-name">{lang.language}</span>
-										</div>
-										<span class="lang-level">{lang.level}</span>
+					<div class="lang-list">
+						{#each data.languages as lang}
+							<div class="lang-row">
+								<div class="lang-meta-row">
+									<div class="lang-badge-group">
+										{#if lang.badge}
+											<span class="flag-pill {lang.badge.toLowerCase()}">{lang.badge}</span>
+										{/if}
+										<span class="lang-name">{lang.language}</span>
 									</div>
-								{/each}
+									<span class="lang-level">{lang.level}</span>
+								</div>
+								{#if lang.proficiencyPercent}
+									<div class="lang-bar-track">
+										<div
+											class="lang-bar-fill {lang.badge ? lang.badge.toLowerCase() : ''}"
+											style="width: {lang.proficiencyPercent}%;"
+										></div>
+									</div>
+								{/if}
 							</div>
-						</div>
+						{/each}
+					</div>
+				</section>
 
-						<!-- Hobbies Column -->
-						<div class="hobbies-col">
-							<div class="sub-label-mini">
-								{data.locale === 'uk' ? 'Технічні інтереси' : 'Tech Interests'}
-							</div>
-							<div class="hobbies-grid">
-								{#each data.hobbies as hobby}
-									<div class="hobby-pill">
-										<Icon name={hobby.icon} size={12} />
-										<span>{hobby.name}</span>
+				<!-- HOBBIES & TECH INTERESTS CARD -->
+				<section class="ref-card hobbies-card">
+					<div class="card-header">
+						<h3 class="card-title">
+							<span class="title-accent-dot purple"></span>
+							<span class="title-text">{data.locale === 'uk' ? 'ХОБІ ТА ТЕХНІЧНІ ІНТЕРЕСИ' : 'HOBBIES & TECH INTERESTS'}</span>
+						</h3>
+					</div>
+
+					<div class="hobbies-grid">
+						{#each data.hobbies as hobby}
+							<div class="hobby-card">
+								<div class="hobby-header">
+									<div class="hobby-icon-wrap">
+										<Icon name={hobby.icon} size={14} />
 									</div>
-								{/each}
+									<span class="hobby-name">{hobby.name}</span>
+								</div>
+								{#if hobby.description}
+									<p class="hobby-desc">{hobby.description}</p>
+								{/if}
 							</div>
-						</div>
+						{/each}
 					</div>
 				</section>
 			</div>
@@ -1009,20 +1022,29 @@
 	}
 
 	/* ================= ACHIEVEMENTS ================= */
-	.ach-list {
+	.ach-card {
+		flex: 1;
 		display: flex;
 		flex-direction: column;
-		gap: 9px;
+	}
+
+	.ach-list {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 10px;
 	}
 
 	.ach-item {
+		flex: 1;
 		display: flex;
 		align-items: flex-start;
 		gap: 10px;
 		background: rgba(255, 255, 255, 0.02);
 		border: 1px solid rgba(255, 255, 255, 0.05);
 		border-radius: 7px;
-		padding: 8px 10px;
+		padding: 9px 12px;
 	}
 
 	.ach-icon-circle {
@@ -1239,45 +1261,41 @@
 		margin: 0;
 	}
 
-	/* ================= LANGUAGES & HOBBIES ================= */
-	.lang-hobbies-split {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 14px;
-	}
-
-	.sub-label-mini {
-		font-size: 0.7rem;
-		font-weight: 700;
-		color: #94a3b8;
-		text-transform: uppercase;
-		letter-spacing: 0.03em;
-		margin-bottom: 6px;
+	/* ================= LANGUAGES CARD ================= */
+	.languages-card {
+		display: flex;
+		flex-direction: column;
 	}
 
 	.lang-list {
 		display: flex;
 		flex-direction: column;
-		gap: 5px;
+		gap: 9px;
 	}
 
 	.lang-row {
 		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		font-size: 0.72rem;
-		padding: 3px 0;
+		flex-direction: column;
+		gap: 4px;
+		padding-bottom: 7px;
 		border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
 	}
 
 	.lang-row:last-child {
 		border-bottom: none;
+		padding-bottom: 0;
+	}
+
+	.lang-meta-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 
 	.lang-badge-group {
 		display: flex;
 		align-items: center;
-		gap: 5px;
+		gap: 6px;
 	}
 
 	.flag-pill {
@@ -1286,6 +1304,7 @@
 		padding: 1px 4px;
 		border-radius: 3px;
 		font-family: var(--font-mono);
+		letter-spacing: 0.03em;
 	}
 
 	.flag-pill.ua { background: #0057b7; color: #ffd700; }
@@ -1293,32 +1312,108 @@
 	.flag-pill.ru { background: #475569; color: #ffffff; }
 
 	.lang-name {
+		font-size: 0.77rem;
+		font-weight: 600;
 		color: #e2e8f0;
 	}
 
 	.lang-level {
 		font-family: var(--font-mono);
-		font-size: 0.7rem;
+		font-size: 0.70rem;
 		color: #38bdf8;
+		font-weight: 600;
 		white-space: nowrap;
 	}
 
-	.hobbies-grid {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 4px;
+	.lang-bar-track {
+		width: 100%;
+		height: 3px;
+		background: rgba(255, 255, 255, 0.08);
+		border-radius: 2px;
+		overflow: hidden;
 	}
 
-	.hobby-pill {
-		display: inline-flex;
-		align-items: center;
-		gap: 4px;
-		background: rgba(255, 255, 255, 0.04);
+	.lang-bar-fill {
+		height: 100%;
+		border-radius: 2px;
+		transition: width 0.3s ease;
+	}
+
+	.lang-bar-fill.ua {
+		background: linear-gradient(90deg, #0284c7, #38bdf8);
+	}
+
+	.lang-bar-fill.en {
+		background: linear-gradient(90deg, #6366f1, #818cf8);
+	}
+
+	.lang-bar-fill.ru {
+		background: linear-gradient(90deg, #64748b, #94a3b8);
+	}
+
+	/* ================= HOBBIES & TECH INTERESTS CARD ================= */
+	.hobbies-card {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.hobbies-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 8px;
+	}
+
+	.hobby-card {
+		background: rgba(255, 255, 255, 0.025);
 		border: 1px solid rgba(255, 255, 255, 0.07);
+		border-radius: 6px;
+		padding: 7px 9px;
+		display: flex;
+		flex-direction: column;
+		gap: 3px;
+		transition: all 180ms ease;
+	}
+
+	.hobby-card:hover {
+		background: rgba(255, 255, 255, 0.05);
+		border-color: rgba(168, 85, 247, 0.35);
+		transform: translateY(-1px);
+	}
+
+	.hobby-header {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+	}
+
+	.hobby-icon-wrap {
+		width: 20px;
+		height: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		border-radius: 4px;
-		padding: 3px 6px;
-		font-size: 0.69rem;
-		color: #cbd5e1;
+		background: rgba(168, 85, 247, 0.12);
+		border: 1px solid rgba(168, 85, 247, 0.25);
+		color: #c084fc;
+		flex-shrink: 0;
+	}
+
+	.hobby-name {
+		font-size: 0.72rem;
+		font-weight: 700;
+		color: #f1f5f9;
+		line-height: 1.2;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.hobby-desc {
+		font-size: 0.65rem;
+		color: #94a3b8;
+		line-height: 1.3;
+		margin: 0;
 	}
 
 	/* Search Highlight */
@@ -1641,11 +1736,17 @@
 			color: #a1a1aa !important;
 		}
 
+		.ach-card {
+			flex: initial !important;
+		}
+
 		.ach-list {
-			gap: 4px !important;
+			flex: initial !important;
+			gap: 3.5px !important;
 		}
 
 		.ach-item {
+			flex: initial !important;
 			background: #141419 !important;
 			border: 1px solid #2e2e38 !important;
 			padding: 3px 6.5px !important;
@@ -1775,15 +1876,9 @@
 			line-height: 1.20 !important;
 		}
 
-		.lang-hobbies-split {
-			gap: 8px !important;
-		}
-
-		.sub-label-mini {
-			font-size: 0.66rem !important;
-			color: #94a3b8 !important;
-			margin-bottom: 2px !important;
-			font-weight: 600 !important;
+		.languages-card {
+			margin: 0 !important;
+			padding: 4px 8px !important;
 		}
 
 		.lang-list {
@@ -1791,30 +1886,65 @@
 		}
 
 		.lang-row {
+			padding-bottom: 2px !important;
+			gap: 1.5px !important;
+		}
+
+		.lang-meta-row {
 			font-size: 0.67rem !important;
-			padding: 1.5px 0 !important;
 		}
 
 		.lang-name {
+			font-size: 0.67rem !important;
 			color: #f4f4f5 !important;
 		}
 
 		.lang-level {
+			font-size: 0.64rem !important;
 			color: #38bdf8 !important;
 			font-weight: 600 !important;
 		}
 
-		.hobbies-grid {
-			gap: 3px !important;
+		.lang-bar-track {
+			height: 2px !important;
 		}
 
-		.hobby-pill {
-			font-size: 0.66rem !important;
-			padding: 1.5px 5px !important;
+		.hobbies-card {
+			margin: 0 !important;
+			padding: 4px 8px !important;
+		}
+
+		.hobbies-grid {
+			display: grid !important;
+			grid-template-columns: repeat(2, 1fr) !important;
+			gap: 3.5px !important;
+		}
+
+		.hobby-card {
 			background: #141419 !important;
-			border: 1px solid #383842 !important;
-			color: #d4d4d8 !important;
+			border: 1px solid #2e2e38 !important;
+			border-radius: 4px !important;
+			padding: 2.5px 5px !important;
+			gap: 1px !important;
+		}
+
+		.hobby-header {
+			gap: 3.5px !important;
+		}
+
+		.hobby-icon-wrap {
+			width: 14px !important;
+			height: 14px !important;
 			border-radius: 3px !important;
+		}
+
+		.hobby-name {
+			font-size: 0.65rem !important;
+			color: #e2e8f0 !important;
+		}
+
+		.hobby-desc {
+			display: none !important;
 		}
 	}
 
@@ -1879,9 +2009,9 @@
 			gap: 16px;
 		}
 
-		.lang-hobbies-split {
-			grid-template-columns: 1fr;
-			gap: 14px;
+		.hobbies-grid {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 8px;
 		}
 	}
 
@@ -1976,6 +2106,15 @@
 		.chip {
 			font-size: 0.74rem;
 			padding: 4px 8px;
+		}
+
+		.hobbies-grid {
+			grid-template-columns: 1fr;
+			gap: 6px;
+		}
+
+		.hobby-name {
+			white-space: normal;
 		}
 	}
 
