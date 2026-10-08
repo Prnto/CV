@@ -50,10 +50,10 @@ export const resumeDataEn: ResumeData = {
 			category: 'qa',
 			highlight: true,
 			projects: [
-				'Connect 5',
-				'Connect 6',
-				'Obsidian 4',
-				'Radar 360',
+				'ATN Connect 5',
+				'ATN Connect 6',
+				'ATN Obsidian 4',
+				'ATN Radar 360',
 				'Tactical Map',
 				'ATN Obsidian',
 				'ATN Ballistics',
@@ -61,22 +61,22 @@ export const resumeDataEn: ResumeData = {
 			],
 			apps: [
 				{
-					name: 'Connect 5',
+					name: 'ATN Connect 5',
 					androidUrl: 'https://play.google.com/store/apps/details?id=com.atn.obsidian5',
 					iosUrl: 'https://apps.apple.com/ua/app/atn-connect-5/id1583221269?l=ru'
 				},
 				{
-					name: 'Connect 6',
+					name: 'ATN Connect 6',
 					androidUrl: 'https://play.google.com/store/apps/details?id=com.atn.blaze',
 					iosUrl: 'https://apps.apple.com/ua/app/atn-connect-6/id6476927551?l=ru'
 				},
 				{
-					name: 'Obsidian 4',
+					name: 'ATN Obsidian 4',
 					androidUrl: 'https://play.google.com/store/apps/details?id=com.atn.obsidian4K',
 					iosUrl: 'https://apps.apple.com/ua/app/atn-obsidian-4/id1337731256?l=ru'
 				},
 				{
-					name: 'Radar 360',
+					name: 'ATN Radar 360',
 					androidUrl: 'https://play.google.com/store/apps/details?id=com.atn.tl',
 					iosUrl: 'https://apps.apple.com/ua/app/atn-radar-360/id1526186603?l=ru'
 				},
@@ -86,12 +86,12 @@ export const resumeDataEn: ResumeData = {
 					iosUrl: 'https://apps.apple.com/ua/app/tactical-map/id1618223523?l=ru'
 				},
 				{
-					name: 'Obsidian',
+					name: 'ATN Obsidian',
 					androidUrl: 'https://play.google.com/store/apps/details?id=com.atn.obsidian',
 					iosUrl: 'https://apps.apple.com/ua/app/atn-obsidian/id931990224?l=ru'
 				},
 				{
-					name: 'Ballistics',
+					name: 'ATN Ballistics',
 					androidUrl: 'https://play.google.com/store/apps/details?id=com.atn.bc',
 					iosUrl: 'https://apps.apple.com/ua/app/atn-ballistics/id1193084973?l=ru'
 				}

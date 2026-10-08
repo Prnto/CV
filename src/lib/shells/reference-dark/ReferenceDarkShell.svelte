@@ -59,20 +59,6 @@
 				<div class="identity-block">
 					<div class="name-social-row">
 						<h1 class="person-name">{data.personal.fullName}</h1>
-						<div class="social-links-row no-print">
-							{#each data.personal.socials as social}
-								<a
-									href={social.url}
-									target="_blank"
-									rel="noopener noreferrer"
-									class="social-icon-btn {social.platform}"
-									title={social.label}
-									aria-label={social.label}
-								>
-									<Icon name={social.icon} size={15} />
-								</a>
-							{/each}
-						</div>
 					</div>
 
 					<div class="title-row">
@@ -85,12 +71,12 @@
 							type="button"
 							class="contact-pill"
 							onclick={() => copyText(data.personal.phone, 'phone')}
-							title="Натисніть для копіювання номера"
+							title={data.locale === 'uk' ? 'Натисніть для копіювання номера' : 'Click to copy phone number'}
 						>
 							<Icon name="phone" size={13} />
 							<span>{data.personal.phone}</span>
 							{#if copiedField === 'phone'}
-								<span class="copy-tooltip">Скопійовано!</span>
+								<span class="copy-tooltip">{data.locale === 'uk' ? 'Скопійовано!' : 'Copied!'}</span>
 							{/if}
 						</button>
 
@@ -98,12 +84,12 @@
 							type="button"
 							class="contact-pill"
 							onclick={() => copyText(data.personal.email, 'email')}
-							title="Натисніть для копіювання email"
+							title={data.locale === 'uk' ? 'Натисніть для копіювання email' : 'Click to copy email'}
 						>
 							<Icon name="email" size={13} />
 							<span>{data.personal.email}</span>
 							{#if copiedField === 'email'}
-								<span class="copy-tooltip">Скопійовано!</span>
+								<span class="copy-tooltip">{data.locale === 'uk' ? 'Скопійовано!' : 'Copied!'}</span>
 							{/if}
 						</button>
 
@@ -129,7 +115,7 @@
 							target="_blank"
 							rel="noopener noreferrer"
 							class="contact-pill link"
-							title="LinkedIn профіль"
+							title={data.locale === 'uk' ? 'LinkedIn профіль' : 'LinkedIn profile'}
 						>
 							<Icon name="linkedin" size={13} />
 							<span>LinkedIn</span>
@@ -141,7 +127,7 @@
 							target="_blank"
 							rel="noopener noreferrer"
 							class="contact-pill link"
-							title="GitHub профіль: Prnto"
+							title={data.locale === 'uk' ? 'GitHub профіль: Prnto' : 'GitHub profile: Prnto'}
 						>
 							<Icon name="github" size={13} />
 							<span>GitHub</span>

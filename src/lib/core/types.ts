@@ -105,7 +105,11 @@ export type ShellId = 'reference-dark' | 'terminal-cli' | 'cyberpunk-hud' | 'exe
 export interface ShellDefinition {
 	id: ShellId;
 	name: string;
+	nameUk?: string;
+	nameEn?: string;
 	description: string;
+	descriptionUk?: string;
+	descriptionEn?: string;
 	icon: string;
 	badge: string;
 	accentColor: string;

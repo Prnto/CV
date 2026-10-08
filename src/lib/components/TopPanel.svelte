@@ -35,12 +35,12 @@
 	<div class="panel-inner">
 		<!-- Brand & Status -->
 		<div class="brand-group">
-			<div class="status-indicator" title="Статус: Відкритий до пропозицій (Online)">
+			<div class="status-indicator" title={systemKernel.locale === 'uk' ? 'Статус: Відкритий до пропозицій (Online)' : 'Status: Open to opportunities (Online)'}>
 				<span class="status-dot"></span>
 				<span class="status-ping"></span>
 			</div>
 			<div class="brand-text">
-				<span class="kernel-name">OLEKSII KOLOSOV // QA</span>
+				<span class="kernel-name">{systemKernel.locale === 'uk' ? 'ОЛЕКСІЙ КОЛОСОВ // QA' : 'OLEKSII KOLOSOV // QA'}</span>
 			</div>
 		</div>
 
@@ -53,18 +53,20 @@
 			<div class="shell-buttons">
 				{#each VISIBLE_SHELLS as shell}
 					{@const active = systemKernel.currentShell === shell.id}
+					{@const shellName = systemKernel.locale === 'uk' ? (shell.nameUk ?? shell.name) : (shell.nameEn ?? shell.name)}
+					{@const shellDesc = systemKernel.locale === 'uk' ? (shell.descriptionUk ?? shell.description) : (shell.descriptionEn ?? shell.description)}
 					<button
 						type="button"
 						class="shell-btn"
 						class:active
 						onmouseenter={handleHover}
 						onclick={() => handleShellChange(shell.id)}
-						title={shell.description}
+						title={shellDesc}
 						role="radio"
 						aria-checked={active}
 					>
 						<Icon name={shell.icon} size={14} />
-						<span class="shell-btn-name">{shell.name}</span>
+						<span class="shell-btn-name">{shellName}</span>
 						{#if active}
 							<span class="active-indicator"></span>
 						{/if}
@@ -81,11 +83,10 @@
 				class="action-btn"
 				onmouseenter={handleHover}
 				onclick={() => { if (systemKernel.soundEnabled) sound.playSelect(); systemKernel.toggleSearch(); }}
-				title="Пошук по навичках (Ctrl+K)"
-				aria-label="Пошук по навичках"
+				title={systemKernel.locale === 'uk' ? 'Пошук по навичках (Ctrl+K)' : 'Search skills (Ctrl+K)'}
+				aria-label={systemKernel.locale === 'uk' ? 'Пошук по навичках' : 'Search skills'}
 			>
 				<Icon name="search" size={16} />
-				<span class="key-hint">Ctrl+K</span>
 			</button>
 
 			<!-- Language Switcher -->
@@ -94,11 +95,11 @@
 				class="action-btn lang-btn"
 				onmouseenter={handleHover}
 				onclick={handleLocaleToggle}
-				title="Перемкнути мову (UA / EN)"
-				aria-label="Перемкнути мову"
+				title={systemKernel.locale === 'uk' ? 'Перемкнути на англійську (EN)' : 'Switch to Ukrainian (UA)'}
+				aria-label={systemKernel.locale === 'uk' ? 'Перемкнути мову' : 'Switch language'}
 			>
 				<Icon name="globe" size={15} />
-				<span class="lang-text">{systemKernel.locale.toUpperCase()}</span>
+				<span class="lang-text">{systemKernel.locale === 'uk' ? 'UA' : 'EN'}</span>
 			</button>
 
 			<!-- Sound FX Toggle -->
@@ -108,26 +109,13 @@
 				class:sound-on={systemKernel.soundEnabled}
 				onmouseenter={handleHover}
 				onclick={handleSoundToggle}
-				title={systemKernel.soundEnabled ? 'Звук: Увімкнено (GTA San Andreas)' : 'Звук: Вимкнено'}
-				aria-label="Звукові ефекти"
+				title={systemKernel.locale === 'uk'
+					? (systemKernel.soundEnabled ? 'Звук: Увімкнено (GTA San Andreas)' : 'Звук: Вимкнено')
+					: (systemKernel.soundEnabled ? 'Sound: Enabled (GTA San Andreas)' : 'Sound: Disabled')}
+				aria-label={systemKernel.locale === 'uk' ? 'Звукові ефекти' : 'Sound effects'}
 			>
 				<Icon name={systemKernel.soundEnabled ? 'sound' : 'sound-off'} size={16} />
 			</button>
-
-
-			<!-- GitHub Repository / Profile link -->
-			<a
-				href="https://github.com/Prnto/CV"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="action-btn github-btn"
-				onmouseenter={handleHover}
-				title="GitHub Репозиторій (Prnto/CV)"
-				aria-label="GitHub Репозиторій"
-			>
-				<Icon name="github" size={16} />
-				<span class="github-text">GitHub</span>
-			</a>
 
 			<!-- Print / PDF Export -->
 			<button
@@ -135,11 +123,11 @@
 				class="action-btn print-btn"
 				onmouseenter={handleHover}
 				onclick={handlePrint}
-				title="Друк / Зберегти як PDF"
-				aria-label="Друк резюме"
+				title={systemKernel.locale === 'uk' ? 'Друк / Зберегти як PDF' : 'Print / Save as PDF'}
+				aria-label={systemKernel.locale === 'uk' ? 'Друк резюме' : 'Print resume'}
 			>
 				<Icon name="printer" size={16} />
-				<span class="print-text">PDF / Друк</span>
+				<span class="print-text">{systemKernel.locale === 'uk' ? 'PDF / Друк' : 'PDF / Print'}</span>
 			</button>
 		</div>
 	</div>
@@ -300,16 +288,6 @@
 		border-color: rgba(255, 255, 255, 0.2);
 	}
 
-	.key-hint {
-		font-family: var(--font-mono);
-		font-size: 0.65rem;
-		background: rgba(0, 0, 0, 0.4);
-		padding: 2px 5px;
-		border-radius: 4px;
-		color: #94a3b8;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-	}
-
 	.lang-btn {
 		font-weight: 700;
 		font-family: var(--font-mono);
@@ -341,9 +319,7 @@
 		.shell-btn-name {
 			display: none;
 		}
-		.print-text,
-		.github-text,
-		.key-hint {
+		.print-text {
 			display: none;
 		}
 	}
