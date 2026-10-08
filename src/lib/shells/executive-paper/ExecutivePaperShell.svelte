@@ -697,9 +697,9 @@
 		.exec-paper {
 			width: 100% !important;
 			max-width: 100% !important;
-			min-height: 100% !important;
-			margin: 0 !important;
-			padding: 5mm 8mm !important;
+			min-height: auto !important;
+			margin: 0 auto !important;
+			padding: 7mm 10mm 6mm !important;
 			border: none !important;
 			box-shadow: none !important;
 			box-sizing: border-box !important;
@@ -707,118 +707,127 @@
 		}
 
 		.exec-header {
-			margin-bottom: 6px !important;
-			padding-bottom: 6px !important;
-			border-bottom: 1.5px solid #2563eb !important;
+			margin-bottom: 12px !important;
+			padding-bottom: 10px !important;
+			border-bottom: 2px solid #2563eb !important;
 		}
 
 		.exec-avatar {
-			width: 58px !important;
-			height: 58px !important;
+			width: 70px !important;
+			height: 70px !important;
+			border-radius: 8px !important;
 		}
 
 		.exec-name {
-			font-size: 1.35rem !important;
+			font-size: 1.68rem !important;
 			line-height: 1.1 !important;
+			font-weight: 800 !important;
+			letter-spacing: 0.02em !important;
 		}
 
 		.exec-title {
-			font-size: 0.80rem !important;
-			margin-top: 1px !important;
+			font-size: 0.92rem !important;
+			margin-top: 3px !important;
+			font-weight: 600 !important;
 		}
 
 		.exec-contacts-bar {
-			gap: 8px !important;
-			font-size: 0.62rem !important;
-			margin-top: 3px !important;
+			gap: 12px !important;
+			font-size: 0.72rem !important;
+			margin-top: 5px !important;
 		}
 
 		.exec-contacts-bar a {
 			text-decoration: none !important;
 		}
 
-
 		.exec-summary {
-			font-size: 0.67rem !important;
-			line-height: 1.25 !important;
-			margin-top: 3px !important;
+			font-size: 0.75rem !important;
+			line-height: 1.38 !important;
+			margin-top: 5px !important;
 			color: #334155 !important;
 		}
 
 		.exec-body-grid {
 			display: grid !important;
-			grid-template-columns: 1.55fr 1fr !important;
-			gap: 14px !important;
+			grid-template-columns: 1.48fr 1fr !important;
+			gap: 16px !important;
 		}
 
 		.exec-section-heading {
-			font-size: 0.75rem !important;
-			margin-bottom: 5px !important;
+			font-size: 0.86rem !important;
+			margin-bottom: 7px !important;
 			gap: 6px !important;
+			font-weight: 700 !important;
 		}
 
 		.heading-line {
-			height: 14px !important;
-			width: 3px !important;
+			height: 16px !important;
+			width: 3.5px !important;
 		}
 
 		.exec-exp-list {
-			gap: 6px !important;
+			gap: 9px !important;
 		}
 
 		.exec-exp-entry {
-			gap: 2px !important;
+			gap: 3px !important;
 			break-inside: avoid !important;
 			page-break-inside: avoid !important;
 		}
 
 		.company-text {
-			font-size: 0.76rem !important;
+			font-size: 0.88rem !important;
+			font-weight: 700 !important;
 		}
 
 		.period-text {
-			font-size: 0.62rem !important;
+			font-size: 0.70rem !important;
 		}
 
 		.role-text {
-			font-size: 0.68rem !important;
+			font-size: 0.78rem !important;
+			font-weight: 600 !important;
+			color: #2563eb !important;
 		}
 
 		.projects-text {
-			font-size: 0.60rem !important;
-			padding: 2px 5px !important;
-			margin: 1px 0 2px !important;
-			border-left: 2px solid #2563eb !important;
+			font-size: 0.69rem !important;
+			padding: 3px 7px !important;
+			margin: 3px 0 4px !important;
+			border-left: 2.5px solid #2563eb !important;
 		}
 
 		.exec-apps-row {
-			gap: 3px !important;
-			margin-bottom: 1px !important;
+			gap: 4px !important;
+			margin-bottom: 2.5px !important;
 		}
 
 		.exec-apps-list {
-			gap: 2.5px !important;
+			gap: 3.5px !important;
 		}
 
 		.exec-app-chip {
-			padding: 0 3px !important;
-			gap: 2.5px !important;
-			border: 1px solid #94a3b8 !important;
+			padding: 1.5px 5px !important;
+			gap: 3.5px !important;
+			border: 1px solid #cbd5e1 !important;
 			background: #ffffff !important;
+			border-radius: 3px !important;
 		}
 
 		.exec-app-name {
-			font-size: 0.58rem !important;
+			font-size: 0.65rem !important;
+			font-weight: 600 !important;
 			color: #0f172a !important;
 		}
 
 		.exec-store-btns {
-			gap: 1.5px !important;
+			gap: 2px !important;
 		}
 
 		.exec-store-badge {
-			font-size: 0.51rem !important;
-			padding: 0 2px !important;
+			font-size: 0.58rem !important;
+			padding: 1px 3.5px !important;
 			border-radius: 2px !important;
 		}
 
@@ -835,78 +844,84 @@
 		}
 
 		.exec-hw-row {
-			font-size: 0.58rem !important;
-			margin-top: 1px !important;
+			font-size: 0.68rem !important;
+			margin-top: 2.5px !important;
 		}
 
 		.exec-bullets {
-			padding-left: 14px !important;
-			margin-top: 2px !important;
-			gap: 1.5px !important;
+			padding-left: 16px !important;
+			margin-top: 4px !important;
+			gap: 3px !important;
 		}
 
 		.exec-bullets li {
-			font-size: 0.62rem !important;
-			line-height: 1.18 !important;
+			font-size: 0.71rem !important;
+			line-height: 1.28 !important;
 			color: #334155 !important;
 		}
 
 		.exec-edu-list {
-			gap: 4px !important;
+			gap: 7px !important;
 		}
 
 		.exec-edu-entry strong {
-			font-size: 0.72rem !important;
+			font-size: 0.80rem !important;
+			font-weight: 700 !important;
 		}
 
 		.edu-sub {
-			font-size: 0.61rem !important;
+			font-size: 0.70rem !important;
+			line-height: 1.25 !important;
 		}
 
 		.exec-side-section {
-			margin-bottom: 5px !important;
+			margin-bottom: 9px !important;
 			break-inside: avoid !important;
 			page-break-inside: avoid !important;
 		}
 
 		.side-heading {
-			font-size: 0.68rem !important;
-			margin-bottom: 3px !important;
+			font-size: 0.78rem !important;
+			margin-bottom: 5px !important;
 			padding-bottom: 2px !important;
+			font-weight: 700 !important;
 		}
 
 		.side-list {
-			padding-left: 12px !important;
-			gap: 1.5px !important;
-		}
-
-		.side-list li {
-			font-size: 0.62rem !important;
-			line-height: 1.18 !important;
-		}
-
-		.side-tags {
+			padding-left: 14px !important;
 			gap: 2.5px !important;
 		}
 
+		.side-list li {
+			font-size: 0.71rem !important;
+			line-height: 1.26 !important;
+		}
+
+		.side-tags {
+			gap: 3.5px !important;
+		}
+
 		.side-tag {
-			font-size: 0.60rem !important;
-			padding: 1px 4px !important;
+			font-size: 0.67rem !important;
+			padding: 2px 6px !important;
+			border-radius: 3px !important;
 		}
 
 		.course-side-box {
-			padding: 3px 6px !important;
-			font-size: 0.61rem !important;
-			line-height: 1.15 !important;
+			padding: 4px 7px !important;
+			font-size: 0.69rem !important;
+			line-height: 1.25 !important;
+			border-radius: 4px !important;
+			margin-top: 3px !important;
 		}
 
 		.lang-exec-list {
-			gap: 2px !important;
-			font-size: 0.63rem !important;
+			gap: 3px !important;
+			font-size: 0.71rem !important;
 		}
 
 		.lang-exec-row {
-			padding: 1.5px 0 !important;
+			padding: 2px 0 !important;
 		}
 
 		.exec-company-link,

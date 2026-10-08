@@ -1357,22 +1357,22 @@
 		.ref-canvas {
 			width: 100% !important;
 			max-width: 100% !important;
-			height: 297mm !important;
-			max-height: 297mm !important;
-			margin: 0 !important;
+			height: auto !important;
+			max-height: none !important;
+			margin: 0 auto !important;
 			padding: 5mm 7mm !important;
 			background: #141418 !important;
 			border: none !important;
 			box-shadow: none !important;
 			border-radius: 0 !important;
 			box-sizing: border-box !important;
-			overflow: hidden !important;
+			overflow: visible !important;
 		}
 
 		.ref-header {
-			padding-bottom: 9px !important;
-			margin-bottom: 11px !important;
-			border-bottom: 2px solid #38bdf8 !important;
+			padding-bottom: 7px !important;
+			margin-bottom: 8px !important;
+			border-bottom: 1.5px solid #38bdf8 !important;
 		}
 
 		.header-main-row {
@@ -1380,7 +1380,7 @@
 			flex-direction: row !important;
 			align-items: center !important;
 			text-align: left !important;
-			gap: 16px !important;
+			gap: 13px !important;
 		}
 
 		.avatar-block {
@@ -1389,15 +1389,15 @@
 		}
 
 		.avatar-wrapper {
-			width: 74px !important;
-			height: 74px !important;
-			border-radius: 8px !important;
-			border: 2px solid #38bdf8 !important;
+			width: 64px !important;
+			height: 64px !important;
+			border-radius: 6px !important;
+			border: 1.5px solid #38bdf8 !important;
 		}
 
 		.identity-block {
 			flex: 1 !important;
-			gap: 3px !important;
+			gap: 2px !important;
 			text-align: left !important;
 		}
 
@@ -1410,7 +1410,7 @@
 		}
 
 		.person-name {
-			font-size: 1.58rem !important;
+			font-size: 1.48rem !important;
 			color: #ffffff !important;
 			line-height: 1.1 !important;
 			font-weight: 800 !important;
@@ -1420,11 +1420,11 @@
 		.title-row {
 			display: flex !important;
 			justify-content: flex-start !important;
-			margin-top: 2px !important;
+			margin-top: 1px !important;
 		}
 
 		.person-title {
-			font-size: 0.92rem !important;
+			font-size: 0.86rem !important;
 			color: #38bdf8 !important;
 			font-weight: 600 !important;
 		}
@@ -1433,30 +1433,30 @@
 			display: flex !important;
 			flex-wrap: wrap !important;
 			justify-content: flex-start !important;
-			gap: 5px 8px !important;
-			margin: 4px 0 !important;
+			gap: 4px 7px !important;
+			margin: 3px 0 !important;
 		}
 
 		.contact-pill {
 			background: #1e1e24 !important;
 			border: 1px solid #3f3f4a !important;
 			color: #e4e4e7 !important;
-			font-size: 0.72rem !important;
-			padding: 2.5px 8px !important;
+			font-size: 0.68rem !important;
+			padding: 2px 7px !important;
 			border-radius: 4px !important;
 			line-height: 1.15 !important;
 		}
 
 		.contact-pill :global(svg) {
 			color: #38bdf8 !important;
-			width: 13px !important;
-			height: 13px !important;
+			width: 12px !important;
+			height: 12px !important;
 		}
 
 		.person-bio {
-			font-size: 0.73rem !important;
+			font-size: 0.69rem !important;
 			color: #cbd5e1 !important;
-			line-height: 1.35 !important;
+			line-height: 1.28 !important;
 			margin-top: 3px !important;
 			text-align: left !important;
 		}
@@ -1464,33 +1464,33 @@
 		.ref-main-grid {
 			display: grid !important;
 			grid-template-columns: 1.18fr 1fr !important;
-			gap: 10px !important;
+			gap: 8px !important;
 		}
 
 		.ref-column {
 			display: flex !important;
 			flex-direction: column !important;
-			gap: 9px !important;
+			gap: 7px !important;
 		}
 
 		.ref-card {
 			background: #1b1b22 !important;
 			border: 1px solid #2e2e38 !important;
 			box-shadow: none !important;
-			padding: 8px 10px !important;
-			border-radius: 6px !important;
+			padding: 6px 9px !important;
+			border-radius: 5px !important;
 			break-inside: avoid !important;
 			page-break-inside: avoid !important;
 		}
 
 		.card-header {
-			margin-bottom: 5px !important;
+			margin-bottom: 4px !important;
 			padding-bottom: 3px !important;
 			border-bottom: 1px solid #2e2e38 !important;
 		}
 
 		.card-title {
-			font-size: 0.82rem !important;
+			font-size: 0.79rem !important;
 			font-weight: 700 !important;
 			color: #f4f4f5 !important;
 		}
@@ -1516,23 +1516,23 @@
 		}
 
 		.exp-list {
-			gap: 7px !important;
+			gap: 5px !important;
 		}
 
 		.exp-item {
-			padding-bottom: 5px !important;
+			padding-bottom: 3px !important;
 			border-bottom-color: #2e2e38 !important;
 		}
 
 		.exp-item.highlighted {
 			background: rgba(56, 189, 248, 0.04) !important;
 			border: 1px solid rgba(56, 189, 248, 0.22) !important;
-			padding: 5px 7px !important;
+			padding: 4px 6px !important;
 			border-radius: 4px !important;
 		}
 
 		.company-name {
-			font-size: 0.85rem !important;
+			font-size: 0.82rem !important;
 			font-weight: 700 !important;
 			color: #ffffff !important;
 		}
@@ -1541,7 +1541,7 @@
 		.company-logo.bastico { background: #16a34a !important; }
 
 		.exp-period {
-			font-size: 0.70rem !important;
+			font-size: 0.67rem !important;
 			color: #a1a1aa !important;
 		}
 
@@ -1549,50 +1549,50 @@
 			background: rgba(56, 189, 248, 0.14) !important;
 			color: #38bdf8 !important;
 			border-color: rgba(56, 189, 248, 0.3) !important;
-			font-size: 0.72rem !important;
-			padding: 1.5px 6px !important;
+			font-size: 0.70rem !important;
+			padding: 1px 5px !important;
 			font-weight: 600 !important;
 		}
 
 		.projects-block {
 			background: #141418 !important;
 			border-left: 2px solid #38bdf8 !important;
-			font-size: 0.67rem !important;
+			font-size: 0.65rem !important;
 			color: #d4d4d8 !important;
-			padding: 3px 6px !important;
-			margin: 3px 0 4px !important;
+			padding: 2.5px 5px !important;
+			margin: 2px 0 3px !important;
 		}
 
 		.apps-row {
-			gap: 4px !important;
-			margin-bottom: 2px !important;
+			gap: 3px !important;
+			margin-bottom: 1.5px !important;
 		}
 
 		.apps-badges-list {
-			gap: 3.5px !important;
+			gap: 2.5px !important;
 		}
 
 		.app-chip {
-			padding: 1.5px 5px !important;
+			padding: 1px 4px !important;
 			background: #18181f !important;
 			border: 1px solid #31313d !important;
-			gap: 3.5px !important;
+			gap: 3px !important;
 			border-radius: 3px !important;
 		}
 
 		.app-chip-name {
-			font-size: 0.65rem !important;
+			font-size: 0.61rem !important;
 			font-weight: 600 !important;
 			color: #f4f4f5 !important;
 		}
 
 		.app-chip-stores {
-			gap: 2px !important;
+			gap: 1.5px !important;
 		}
 
 		.store-badge {
-			font-size: 0.58rem !important;
-			padding: 1px 3.5px !important;
+			font-size: 0.54rem !important;
+			padding: 0.5px 3px !important;
 			border-radius: 2px !important;
 		}
 
@@ -1609,17 +1609,17 @@
 		}
 
 		.hardware-row {
-			font-size: 0.66rem !important;
-			margin-top: 2px !important;
+			font-size: 0.63rem !important;
+			margin-top: 1.5px !important;
 		}
 
 		.bullets-list {
-			gap: 3.5px !important;
+			gap: 2.5px !important;
 		}
 
 		.bullets-list li {
-			font-size: 0.71rem !important;
-			line-height: 1.28 !important;
+			font-size: 0.68rem !important;
+			line-height: 1.22 !important;
 			color: #d4d4d8 !important;
 		}
 
@@ -1628,7 +1628,7 @@
 		}
 
 		.exp-concise-line {
-			font-size: 0.71rem !important;
+			font-size: 0.68rem !important;
 			gap: 4px !important;
 		}
 
@@ -1642,49 +1642,53 @@
 		}
 
 		.ach-list {
-			gap: 6px !important;
+			gap: 4px !important;
 		}
 
 		.ach-item {
 			background: #141419 !important;
 			border: 1px solid #2e2e38 !important;
-			padding: 4.5px 7.5px !important;
+			padding: 3px 6.5px !important;
 			border-radius: 4px !important;
+			gap: 7px !important;
 		}
 
 		.ach-icon-circle {
 			background: rgba(245, 158, 11, 0.15) !important;
 			border-color: rgba(245, 158, 11, 0.3) !important;
 			color: #f59e0b !important;
-			width: 20px !important;
-			height: 20px !important;
+			width: 18px !important;
+			height: 18px !important;
+			min-width: 18px !important;
 		}
 
 		.ach-title {
-			font-size: 0.75rem !important;
+			font-size: 0.71rem !important;
 			font-weight: 700 !important;
 			color: #ffffff !important;
+			line-height: 1.15 !important;
 		}
 
 		.ach-subtitle {
-			font-size: 0.68rem !important;
+			font-size: 0.64rem !important;
 			color: #fbbf24 !important;
+			line-height: 1.15 !important;
 		}
 
 		.ach-details {
-			font-size: 0.68rem !important;
+			font-size: 0.64rem !important;
 			color: #cbd5e1 !important;
-			line-height: 1.22 !important;
+			line-height: 1.18 !important;
 		}
 
 		.skills-section-block {
-			margin-bottom: 6px !important;
+			margin-bottom: 5px !important;
 		}
 
 		.sub-label {
-			font-size: 0.71rem !important;
+			font-size: 0.69rem !important;
 			font-weight: 600 !important;
-			margin-bottom: 3px !important;
+			margin-bottom: 2.5px !important;
 			color: #38bdf8 !important;
 		}
 
@@ -1697,12 +1701,12 @@
 		}
 
 		.chips-grid {
-			gap: 3.5px !important;
+			gap: 3px !important;
 		}
 
 		.chip {
-			font-size: 0.69rem !important;
-			padding: 2px 5.5px !important;
+			font-size: 0.66rem !important;
+			padding: 1.5px 5px !important;
 			background: #141419 !important;
 			color: #e4e4e7 !important;
 			border: 1px solid #383842 !important;
@@ -1722,63 +1726,63 @@
 		}
 
 		.edu-list {
-			gap: 6px !important;
+			gap: 5px !important;
 		}
 
 		.edu-item {
-			padding-bottom: 4px !important;
+			padding-bottom: 3px !important;
 			border-bottom-color: #2e2e38 !important;
 		}
 
 		.edu-inst {
-			font-size: 0.75rem !important;
+			font-size: 0.73rem !important;
 			font-weight: 700 !important;
 			color: #ffffff !important;
 		}
 
 		.edu-period {
-			font-size: 0.68rem !important;
+			font-size: 0.66rem !important;
 			color: #a1a1aa !important;
 		}
 
 		.edu-meta {
-			font-size: 0.68rem !important;
+			font-size: 0.66rem !important;
 			color: #a1a1aa !important;
 		}
 
 		.course-box {
 			background: rgba(56, 189, 248, 0.05) !important;
 			border: 1px solid rgba(56, 189, 248, 0.25) !important;
-			padding: 4.5px 7.5px !important;
+			padding: 4px 7px !important;
 			border-radius: 4px !important;
-			margin-top: 4px !important;
+			margin-top: 3px !important;
 		}
 
 		.course-badge {
-			font-size: 0.66rem !important;
+			font-size: 0.65rem !important;
 			font-weight: 700 !important;
 			color: #38bdf8 !important;
 		}
 
 		.course-year {
-			font-size: 0.65rem !important;
+			font-size: 0.64rem !important;
 			color: #a1a1aa !important;
 		}
 
 		.course-text {
-			font-size: 0.68rem !important;
+			font-size: 0.66rem !important;
 			color: #d4d4d8 !important;
-			line-height: 1.22 !important;
+			line-height: 1.20 !important;
 		}
 
 		.lang-hobbies-split {
-			gap: 9px !important;
+			gap: 8px !important;
 		}
 
 		.sub-label-mini {
-			font-size: 0.67rem !important;
+			font-size: 0.66rem !important;
 			color: #94a3b8 !important;
-			margin-bottom: 3px !important;
+			margin-bottom: 2px !important;
 			font-weight: 600 !important;
 		}
 
@@ -1787,7 +1791,7 @@
 		}
 
 		.lang-row {
-			font-size: 0.69rem !important;
+			font-size: 0.67rem !important;
 			padding: 1.5px 0 !important;
 		}
 
@@ -1801,12 +1805,12 @@
 		}
 
 		.hobbies-grid {
-			gap: 3.5px !important;
+			gap: 3px !important;
 		}
 
 		.hobby-pill {
-			font-size: 0.67rem !important;
-			padding: 2px 5.5px !important;
+			font-size: 0.66rem !important;
+			padding: 1.5px 5px !important;
 			background: #141419 !important;
 			border: 1px solid #383842 !important;
 			color: #d4d4d8 !important;
